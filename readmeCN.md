@@ -88,4 +88,4 @@ extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileT
     
 ## 八：效果图:
 ![LOGIN](./login.png)
-![UI](./DET.png)
+![UI](./det.png)
