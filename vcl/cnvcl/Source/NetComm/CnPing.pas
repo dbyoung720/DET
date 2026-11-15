@@ -1,0 +1,719 @@
+{******************************************************************************}
+{                                                                              }
+{                       CnPack For Delphi/C++Builder                           }
+{                     中国人自己的开放源码第三方开发包                         }
+{                   (C)Copyright 2001-2026 CnPack 开发组                       }
+{                   ------------------------------------                       }
+{                                                                              }
+{            本开发包是开源的自由软件，您可以遵照 CnPack 的发布协议来修        }
+{        改和重新发布这一程序。                                                }
+{                                                                              }
+{            发布这一开发包的目的是希望它有用，但没有任何担保。甚至没有        }
+{        适合特定目的而隐含的担保。更详细的情况请参阅 CnPack 发布协议。        }
+{                                                                              }
+{            您应该已经和开发包一起收到一份 CnPack 发布协议的副本。如果        }
+{        还没有，可访问我们的网站：                                            }
+{                                                                              }
+{            网站地址：https://www.cnpack.org                                  }
+{            电子邮件：master@cnpack.org                                       }
+{                                                                              }
+{******************************************************************************}
+
+unit CnPing;
+{* |<PRE>
+================================================================================
+* 软件名称：网络通讯组件包
+* 单元名称：Ping 通讯单元
+* 单元作者：胡昌洪Sesame (sesamehch@163.com)
+* 备    注：实现了 ping 功能的 TCnPing 组件，注意在 Delphi 的 MacOS 平台上，即使
+*           sudo 使用 root 权限跑，仍有可能出 65 错误（EHOSTUNREACH），而 MAC 上
+*           的 FPC 3.2.2 可以 ping，暂时无法修复。AI 建议不走 RAW 而走 DIAGRAM。
+* 开发平台：PWin2000Pro + Delphi 5.01
+* 兼容测试：PWin9X/2000/XP + Delphi 5/6/7 + C++Builder 5/6
+* 本 地 化：该单元中的字符串均符合本地化处理方式
+* 修改记录：2008.04.04 V1.0
+*                创建单元
+================================================================================
+|</PRE>}
+
+interface
+
+{$I CnPack.inc}
+
+uses
+  {$IFDEF MSWINDOWS} Windows, WinSock, {$ELSE} {$IFDEF FPC} Sockets, BaseUnix, NetDB, {$ELSE}
+  Posix.ArpaInet, Posix.NetinetIn, Posix.SysSocket, Posix.SysTime, {$ENDIF} {$ENDIF}
+  SysUtils, Classes, CnClasses, CnConsts, CnNetConsts, CnNetwork, CnSocket;
+
+type
+  PCnIPOptionInformation = ^TCnIPOptionInformation;
+  TCnIPOptionInformation = packed record
+    TTL: Byte;              // Time To Live (used for traceroute)
+    TOS: Byte;              // Type Of Service (usually 0)
+    Flags: Byte;            // IP header flags (usually 0)
+    OptionsSize: Byte;      // Size of options data (usually 0, max 40)
+{$IFDEF CPU64BITS}
+    Padding: Cardinal;      // 64 位下系统要求对齐 8 字节
+{$ENDIF}
+    OptionsData: PAnsiChar; // Options data buffer
+  end;
+
+  PCnIcmpEchoReply = ^TCnIcmpEchoReply;
+  TCnIcmpEchoReply = packed record
+    Address: Cardinal; // replying address
+    Status: Cardinal;  // IP status value (see below)
+    RTT: Cardinal;     // Round Trip Time in milliseconds
+    DataSize: Word;    // reply data size
+    Reserved: Word;
+    Data: Pointer;     // pointer to reply data buffer
+    Options: TCnIPOptionInformation; // reply options
+  end;
+
+  TCnIpInfo = record
+    Address: Int64;
+    IP: string;
+    Host: string;
+  end;
+
+  TOnPingReceive = procedure(Sender: TComponent; IpAddr, HostName: string;
+    TTL, TOS: Byte) of object;
+
+  TOnPingError = procedure(Sender: TComponent; IpAddr, HostName: string;
+    TTL, TOS: Byte; ErrorMsg: string) of object;
+
+//==============================================================================
+// Ping 通讯类
+//==============================================================================
+
+  { TCnPing }
+
+{$IFNDEF FPC}
+{$IFDEF SUPPORT_32_AND_64}
+  [ComponentPlatformsAttribute(pidWin32 or pidWin64)]
+{$ENDIF}
+{$ENDIF}
+  TCnPing = class(TCnComponent)
+  {* Ping 功能实现类，Windows 下通过调用 ICMP.DLL 库中的函数来实现，其他平台使用 RawSocket。}
+  private
+    FRemoteHost: string;
+    FRemoteIP: string;
+    FIPAddress: Int64;
+    FTTL: Byte;
+    FTimeOut: Cardinal;
+    FPingCount: Integer;
+    FDelay: Integer;
+    FOnError: TOnPingError;
+    FOnReceived: TOnPingReceive;
+    FDataString: string;
+{$IFDEF MSWINDOWS}
+    FHICMP: THandle;
+    FWSAData: TWSAData;
+{$ENDIF}
+    FIP: TCnIpInfo;
+
+    procedure SetPingCount(const Value: Integer);
+    procedure SetRemoteHost(const Value: string);
+    procedure SetTimeOut(const Value: Cardinal);
+    procedure SetTTL(const Value: Byte);
+    procedure SetDataString(const Value: string);
+    procedure SetRemoteIP(const Value: string);
+    function PingIP_Host(const aIP: TCnIpInfo; const Data; Count: Cardinal;
+      var aReply: string): Integer;
+    {* 以设定的数据 Data (无类型缓冲区) Ping 一次并返回结果。Count 表示数据长度
+      返回值为 SCN_ICMP_ERROR_* 系列常量 }
+    function GetReplyString(aResult: Integer; aIP: TCnIpInfo;
+      pIPE: PCnIcmpEchoReply): string;
+    {* 返回结果字符串。}
+    function GetDataString: string;
+    function GetIPByName(const aName: string; var aIP: string): Boolean;
+    {* 通过机器名称获取 IP 地址}
+    function SetIP(aIPAddr, aHost: string; var aIP: TCnIpInfo): Boolean;
+    {* 通过机器名称或 IP 地址填充完整 IP 信息}
+  protected
+    procedure GetComponentInfo(var AName, Author, Email, Comment: string); override;
+  public
+    constructor Create(AOwner: TComponent); override;
+    destructor Destroy; override;
+
+    function Ping(var aReply: string): Boolean;
+    {* 进行循环 Ping，循环次数在 PingCount 属性中指定。}
+    function PingOnce(var aReply: string): Boolean; overload;
+    {* 以设定的数据 Ping 一次并返回结果。}
+    function PingOnce(const aIP: string; var aReply: string): Boolean; overload;
+    {* 向指定 IP 进行一次 Ping 并返回结果。}
+    function PingFromBuffer(var Buffer; Count: Integer; var aReply: string):
+      Boolean;
+    {* 以参数 Buffer 的数据 Ping 一次并读取返回结果。}
+  published
+    property RemoteIP: string read FRemoteIP write SetRemoteIP;
+    {* 要 Ping 的目标主机地址，只支持 IP}
+    property RemoteHost: string read FRemoteHost write SetRemoteHost;
+    {* 要 Ping 的目标主机名，有主机名存在时会覆盖 RemoteIP 的内容}
+    property PingCount: Integer read FPingCount write SetPingCount default 4;
+    {* 调用 Ping 方法时进行多少次数据发送，默认是 4 次。}
+    property Delay: Integer read FDelay write FDelay default 0;
+    {* 相邻两次 Ping 间的时间间隔，单位毫秒，默认 0 也就是不延时}
+    property TTL: Byte read FTTL write SetTTL;
+    {* 设置的 TTL 值，Time to Live}
+    property TimeOut: Cardinal read FTimeOut write SetTimeOut;
+    {* 设置的超时值}
+    property DataString: string read GetDataString write SetDataString;
+    {* 欲发送的数据，以字符串形式表示，默认为"CnPack Ping"。}
+    property OnReceived: TOnPingReceive read FOnReceived write FOnReceived;
+    {* Ping 一次成功时返回数据所触发的事件}
+    property OnError: TOnPingError read FOnError write FOnError;
+    {* Ping 出错时返回的内容和信息。包括目的未知、不可达、超时等。}
+  end;
+
+implementation
+
+{$R-}
+
+uses
+  CnIP;
+
+const
+  SCnPingData = 'CnPack Ping.';
+  MAX_PING_DATA_SIZE = 65535;  // 最大 Ping 数据包大小
+
+  SCN_ICMP_ERROR_OK         = 0;
+  SCN_ICMP_ERROR_BAD_ADDR   = -1;     // 地址错误
+  SCN_ICMP_ERROR_TIME_OUT   = -2;     // 超时
+  SCN_ICMP_ERROR_GENERAL    = -3;     // 一般错误
+  SCN_ICMP_ERROR_SOCKET     = -4;     // Socket 错误
+  SCN_ICMP_ERROR_UNKNOWN    = -100;
+
+{$IFDEF FPC_MACOS}
+
+function inet_addr(p: PAnsiChar): LongWord;
+var
+  S, Buf: string;
+  Parts: array[0..3] of Integer;
+  PartIndex, I: Integer;
+  Ch: Char;
+begin
+  Result := High(LongWord); // INADDR_NONE by default
+  S := string(p);
+  for I := 0 to 3 do
+    Parts[I] := 0;
+  PartIndex := 0;
+  Buf := '';
+  for I := 1 to Length(S) do
+  begin
+    Ch := S[I];
+    if Ch = '.' then
+    begin
+      if (Buf = '') or (PartIndex > 3) then
+        Exit;
+      Parts[PartIndex] := StrToIntDef(Buf, -1);
+      if (Parts[PartIndex] < 0) or (Parts[PartIndex] > 255) then
+        Exit;
+      Buf := '';
+      Inc(PartIndex);
+    end
+    else
+      Buf := Buf + Ch;
+  end;
+  if (PartIndex <> 3) or (Buf = '') then
+    Exit;
+  Parts[3] := StrToIntDef(Buf, -1);
+  if (Parts[3] < 0) or (Parts[3] > 255) then
+    Exit;
+  Result := (Cardinal(Parts[3]) shl 24) or (Cardinal(Parts[2]) shl 16) or
+            (Cardinal(Parts[1]) shl 8) or Cardinal(Parts[0]);
+end;
+
+{$ENDIF}
+
+{$IFDEF MSWINDOWS}
+  ICMPDLL = 'icmp.dll';
+
+type
+
+//==============================================================================
+// 辅助过程  从icmp.dll导入的函数
+//==============================================================================
+
+  TIcmpCreateFile = function (): THandle; stdcall;
+
+  TIcmpCloseHandle = function (IcmpHandle: THandle): Boolean; stdcall;
+
+  TIcmpSendEcho = function (IcmpHandle: THandle;
+                            DestAddress: DWORD;
+                            RequestData: Pointer;
+                            RequestSize: Word;
+                            RequestOptions: PCnIPOptionInformation;
+                            ReplyBuffer: Pointer;
+                            ReplySize: DWORD;
+                            TimeOut: DWORD): DWORD; stdcall;
+
+var
+  IcmpCreateFile: TIcmpCreateFile = nil;
+  IcmpCloseHandle: TIcmpCloseHandle = nil;
+  IcmpSendEcho: TIcmpSendEcho = nil;
+
+  IcmpDllHandle: THandle = 0;
+
+procedure InitIcmpFunctions;
+begin
+  IcmpDllHandle := LoadLibrary(ICMPDLL);
+  if IcmpDllHandle <> 0 then
+  begin
+    @IcmpCreateFile := GetProcAddress(IcmpDllHandle, 'IcmpCreateFile');
+    @IcmpCloseHandle := GetProcAddress(IcmpDllHandle, 'IcmpCloseHandle');
+    @IcmpSendEcho := GetProcAddress(IcmpDllHandle, 'IcmpSendEcho');
+  end;
+end;
+
+procedure FreeIcmpFunctions;
+begin
+  if IcmpDllHandle <> 0 then
+    FreeLibrary(IcmpDllHandle);
+end;
+
+{$ENDIF}
+
+//==============================================================================
+// Ping 通讯类
+//==============================================================================
+
+{ TCnPing }
+
+constructor TCnPing.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+{$IFDEF MSWINDOWS}
+  if IcmpDllHandle = 0 then
+    InitIcmpFunctions;
+{$ENDIF}
+
+  FRemoteIP := '127.0.0.1';
+  FTTL := 64;
+  FPingCount := 4;
+  FDelay := 0;
+  FTimeOut := 1000; // 超时单位为毫秒（Windows IcmpSendEcho / POSIX SO_RCVTIMEO），默认 1 秒
+  FDataString := SCnPingData;
+
+{$IFDEF MSWINDOWS}
+  // WSA 环境在构造时初始化一次，析构时统一清理，避免每次 Ping 的引用计数开销与失衡
+  if WSAStartup(MAKEWORD(2, 0), FWSAData) <> 0 then
+    raise Exception.Create(SInitFailed);
+  FHICMP := IcmpCreateFile(); // 取得 DLL 句柄
+  if FHICMP = INVALID_HANDLE_VALUE then
+  begin
+    WSACleanup;
+    raise Exception.Create(SICMPRunError);
+  end;
+{$ENDIF}
+end;
+
+destructor TCnPing.Destroy;
+begin
+{$IFDEF MSWINDOWS}
+  // FHICMP 有效即代表构造函数中 WSAStartup 已成功，需要配对 WSACleanup
+  if FHICMP <> INVALID_HANDLE_VALUE then
+  begin
+    IcmpCloseHandle(FHICMP);
+    WSACleanup;
+  end;
+{$ENDIF}
+  inherited Destroy;
+end;
+
+procedure TCnPing.GetComponentInfo(var AName, Author, Email,
+  Comment: string);
+begin
+  AName := SCnPingName;
+  Author := SCnPack_Sesame;
+  Email := SCnPack_SesameEmail;
+  Comment := SCnPingComment;
+end;
+
+procedure TCnPing.SetPingCount(const Value: Integer);
+begin
+  if Value > 0 then
+    FPingCount := Value;
+end;
+
+procedure TCnPing.SetRemoteIP(const Value: string);
+begin
+  if FRemoteIP <> Value then
+  begin
+    FRemoteIP := Value;
+    if SetIP(FRemoteIP, '', FIP) then
+    begin
+      FRemoteHost := FIP.Host;
+      FIPAddress := FIP.Address;
+    end;
+  end;
+end;
+
+procedure TCnPing.SetRemoteHost(const Value: string);
+begin
+  if FRemoteHost <> Value then
+  begin
+    // RemoteHost 更改的话，RemoteIP 自动清空
+    FRemoteHost := Value;
+    if SetIP('', FRemoteHost, FIP) then
+    begin
+      FRemoteIP := FIP.IP;
+      FIPAddress := FIP.Address;
+    end;
+  end;
+end;
+
+procedure TCnPing.SetTimeOut(const Value: Cardinal);
+begin
+  FTimeOut := Value;
+end;
+
+procedure TCnPing.SetTTL(const Value: Byte);
+begin
+  FTTL := Value;
+end;
+
+procedure TCnPing.SetDataString(const Value: string);
+begin
+  FDataString := Value;
+end;
+
+function TCnPing.GetDataString: string;
+begin
+  // 纯读取，不产生副作用；空值返回默认载荷（FDataString 已在 Create 中初始化）
+  if FDataString = '' then
+    Result := SCnPingData
+  else
+    Result := FDataString;
+end;
+
+function TCnPing.Ping(var aReply: string): Boolean;
+var
+  iCount, iResult: Integer;
+  sReply: string;
+begin
+  aReply := '';
+  iResult := 0;
+  try
+    SetIP(RemoteIP, RemoteHost, FIP);
+    for iCount := 1 to PingCount do
+    begin
+      iResult := PingIP_Host(FIP, Pointer(FDataString)^, Length(DataString) * SizeOf(Char),
+        sReply);
+      aReply := aReply + #13#10 + sReply;
+      if iResult < 0 then
+        Break;
+
+      if FDelay > 0 then
+        Sleep(FDelay);
+    end;
+  finally
+    Result := iResult >= 0;
+  end;
+end;
+
+function TCnPing.PingOnce(var aReply: string): Boolean;
+begin
+  SetIP(RemoteIP, RemoteHost, FIP);
+  Result := PingIP_Host(FIP, Pointer(FDataString)^, Length(DataString) * SizeOf(Char),
+    aReply) >= 0;
+end;
+
+function TCnPing.PingOnce(const aIP: string; var aReply: string): Boolean;
+begin
+  SetIP(aIP, aIP, FIP);
+  Result := PingIP_Host(FIP, Pointer(FDataString)^, Length(DataString) * SizeOf(Char),
+    aReply) >= 0;
+end;
+
+function TCnPing.PingFromBuffer(var Buffer; Count: Integer;
+  var aReply: string): Boolean;
+begin
+  SetIP(RemoteIP, RemoteHost, FIP);
+  Result := PingIP_Host(FIP, Buffer, Count, aReply) >= 0;
+end;
+
+function TCnPing.PingIP_Host(const aIP: TCnIpInfo; const Data;
+  Count: Cardinal; var aReply: string): Integer;
+var
+  pReqData: PAnsiChar;
+{$IFDEF MSWINDOWS}
+  pRevData: PAnsiChar;
+  IPOpt: TCnIPOptionInformation; // 发送数据结构
+  pCIER: PCnIcmpEchoReply;
+{$ELSE}
+  P: PAnsiChar;
+  Sock: TSocket;
+  DestAddr: TSockAddr;
+  HIp: PCnIPHeader;
+  HIcmp: PCnICMPHeader;
+  tv: timeval;
+  Buf: array[0..1023] of Byte;
+  R, FromLen: Integer;
+  ID, ReceivedID: Word;
+  TimeStart: UInt64;
+  IcmpReply: TCnIcmpEchoReply;
+{$ENDIF}
+begin
+  Result := SCN_ICMP_ERROR_UNKNOWN;
+
+  if Count <= 0 then
+  begin
+    aReply := GetReplyString(Result, aIP, nil);
+    Exit;
+  end;
+  if Count > MAX_PING_DATA_SIZE then
+    Count := MAX_PING_DATA_SIZE;
+
+  if aIP.Address = INADDR_NONE then
+  begin
+    Result := SCN_ICMP_ERROR_BAD_ADDR;
+    aReply := GetReplyString(Result, aIP, nil);
+    Exit;
+  end;
+
+{$IFDEF MSWINDOWS}
+  pReqData := nil;
+  GetMem(pCIER, SizeOf(TCnICMPEchoReply) + Count);
+  GetMem(pRevData, Count);
+  try
+    FillChar(pCIER^, SizeOf(TCnICMPEchoReply) + Count, 0); // 初始化接收数据结构
+    pCIER^.Data := pRevData;
+    GetMem(pReqData, Count);
+    Move(Data, pReqData^, Count); // 准备发送的数据
+    FillChar(IPOpt, Sizeof(IPOpt), 0); // 初始化发送数据结构
+    IPOpt.TTL := FTTL;
+
+    try // Ping开始（WSA 环境已在构造函数中初始化）
+      if IcmpSendEcho(FHICMP, // dll handle
+        aIP.Address, // target
+        pReqData,    // data
+        Count,       // data length
+        @IPOpt,      // addree of ping option
+        pCIER,
+        SizeOf(TCnICMPEchoReply) + Count, // pack size
+        FTimeOut     // timeout value
+        ) <> 0 then
+      begin
+        Result := SCN_ICMP_ERROR_OK; // Ping 正常返回
+        if Assigned(FOnReceived) then
+          FOnReceived(Self, aIP.IP, aIP.Host, IPOpt.TTL, IPOpt.TOS);
+      end
+      else
+      begin
+        Result := SCN_ICMP_ERROR_TIME_OUT; // 没有响应
+        if Assigned(FOnError) then
+          FOnError(Self, aIP.IP, aIP.Host, IPOpt.TTL, IPOpt.TOS, SNoResponse);
+      end;
+    except
+      on E: Exception do
+      begin
+        Result := SCN_ICMP_ERROR_GENERAL; // 发生错误
+        if Assigned(FOnError) then
+          FOnError(Self, aIP.IP, aIP.Host, IPOpt.TTL, IPOpt.TOS, E.Message);
+      end;
+    end;
+  finally
+    aReply := GetReplyString(Result, aIP, pCIER);
+    if pRevData <> nil then
+    begin
+      FreeMem(pRevData); // 释放内存
+      pCIER.Data := nil;
+    end;
+    if pReqData <> nil then
+      FreeMem(pReqData); //释放内存
+    FreeMem(pCIER);      //释放内存
+  end;
+{$ELSE}
+  // POSIX sendto Ping and recvfrom
+  Sock := CnNewSocket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
+  if Sock = INVALID_SOCKET then
+  begin
+    Result := SCN_ICMP_ERROR_SOCKET;
+    aReply := GetReplyString(Result, aIP, nil);
+    Exit;
+  end;
+
+  // 接收超时使用 FTimeOut 属性（毫秒），与 Windows 路径的单位保持一致
+  tv.tv_sec := FTimeOut div 1000;
+  tv.tv_usec := (FTimeOut mod 1000) * 1000;
+  CnSetSockOpt(Sock, SOL_SOCKET, SO_RCVTIMEO, @tv, SizeOf(tv));
+
+  pReqData := nil;
+
+  try
+    GetMem(pReqData, SizeOf(TCnICMPHeader) + Count);
+
+    HIcmp := PCnICMPHeader(pReqData);
+    P := pReqData;
+    Inc(P, SizeOf(TCnICMPHeader));
+    Move(Data, P^, Count); // 准备发送的数据
+
+    CnSetICMPType(HIcmp, CN_ICMP_TYPE_ECHO);
+    CnSetICMPCode(HIcmp, CN_ICMP_CODE_NO_CODE);
+    ID := Random($FFFF);
+    CnSetICMPIdentifier(HIcmp, ID);
+    CnSetICMPSequenceNumber(HIcmp, 0);
+
+    CnFillICMPHeaderCheckSum(HIcmp, Count);
+
+    FillChar(DestAddr, SizeOf(DestAddr), 0);
+{$IFNDEF FPC}
+    DestAddr.sin_len := SizeOf(DestAddr);
+{$ENDIF}
+
+    DestAddr.sin_family := AF_INET;
+    DestAddr.sin_addr.s_addr := inet_addr(PAnsiChar(aIP.IP));
+
+{$IFDEF FPC}
+    TimeStart := GetTickCount64;
+{$ELSE}
+    TimeStart := TThread.GetTickCount64;
+{$ENDIF}
+    R := CnSendTo(Sock, HIcmp^, SizeOf(TCnICMPHeader) + Count, 0, DestAddr,
+      SizeOf(DestAddr));
+    if R = SOCKET_ERROR then
+    begin
+      Result := SCN_ICMP_ERROR_GENERAL; // 发生错误
+      aReply := IntToStr(CnGetNetErrorNo);
+      if Assigned(FOnError) then
+        FOnError(Self, aIP.IP, aIP.Host, FTTL, 0, IntToStr(CnGetNetErrorNo));
+      Exit;
+    end;
+
+    // recvfrom
+    FromLen := SizeOf(DestAddr);
+    R := CnRecvFrom(Sock, Buf[0], SizeOf(Buf), 0, DestAddr, FromLen);
+
+    HIcmp := nil;
+    HIp := nil;
+    if R >= SizeOf(TCnIPHeader) + SizeOf(TCnICMPHeader) then
+    begin
+      HIp := PCnIPHeader(@Buf[0]);
+      if (HIp^.VerionHeaderLength shr 4) = 4 then
+      begin
+        if HIp^.Protocol = CN_IP_PROTOCOL_ICMP then
+        begin
+          P := PAnsiChar(HIp);
+          Inc(P, CnGetIPHeaderLength(HIp) * 4);
+          if (NativeUInt(P) - NativeUInt(@Buf[0])) + SizeOf(TCnICMPHeader) <= Cardinal(R) then
+            HIcmp := PCnICMPHeader(P);
+        end;
+      end;
+    end;
+
+    if HIcmp <> nil then
+    begin
+      ReceivedID := CnGetICMPIdentifier(HIcmp);
+      // Writeln('DEBUG: R=', R, ' Type=', HIcmp^.MessageType, ' SentID=', ID, ' RecvID=', ReceivedID);
+      if (HIcmp^.MessageType = CN_ICMP_TYPE_ECHO_REPLY) and (ID = ReceivedID) then
+      begin
+        Result := SCN_ICMP_ERROR_OK;
+        FillChar(IcmpReply, SizeOf(IcmpReply), 0);
+{$IFDEF FPC}
+        IcmpReply.RTT := Cardinal(GetTickCount64 - TimeStart);
+{$ELSE}
+        IcmpReply.RTT := Cardinal(TThread.GetTickCount64 - TimeStart);
+{$ENDIF}
+        if HIp <> nil then
+          IcmpReply.Options.TTL := HIp^.TTL
+        else
+          IcmpReply.Options.TTL := 0; // Unknown TTL
+        IcmpReply.DataSize := R - (NativeUInt(HIcmp) - NativeUInt(@Buf[0])) - SizeOf(TCnICMPHeader);
+
+        aReply := GetReplyString(Result, aIP, @IcmpReply);
+      end
+      else
+      begin
+        Result := SCN_ICMP_ERROR_GENERAL;
+        if Assigned(FOnError) then
+          FOnError(Self, aIP.IP, aIP.Host, FTTL, 0, SICMPRunError);
+      end;
+    end
+    else if R = -1 then
+    begin
+      Result := SCN_ICMP_ERROR_TIME_OUT;
+      if Assigned(FOnError) then
+        FOnError(Self, aIP.IP, aIP.Host, FTTL, 0, SNoResponse);
+    end
+    else
+    begin
+      Result := SCN_ICMP_ERROR_UNKNOWN;
+      if Assigned(FOnError) then
+        FOnError(Self, aIP.IP, aIP.Host, FTTL, 0, SICMPRunError);
+    end;
+  finally
+    // 关闭 socket 必须放在 finally 内，保证发送失败或异常路径也能释放
+    CnCloseSocket(Sock);
+    if aReply = '' then
+      aReply := GetReplyString(Result, aIP, nil);
+    if pReqData <> nil then
+      FreeMem(pReqData); //释放内存
+  end;
+
+{$ENDIF}
+end;
+
+function TCnPing.GetReplyString(aResult: Integer; aIP: TCnIpInfo;
+  pIPE: PCnIcmpEchoReply): string;
+var
+  sHost: string;
+begin
+  Result := SInvalidAddr;
+  case aResult of
+    SCN_ICMP_ERROR_UNKNOWN: Result := SICMPRunError;
+    SCN_ICMP_ERROR_GENERAL: Result := SICMPRunError;
+    SCN_ICMP_ERROR_BAD_ADDR: Result := SInvalidAddr;
+    SCN_ICMP_ERROR_TIME_OUT: Result := Format(SNoResponse, [RemoteHost]);
+    SCN_ICMP_ERROR_SOCKET: Result := SInitFailed;
+  else
+    if pIPE <> nil then
+    begin
+      sHost := aIP.IP;
+      if aIP.Host <> '' then
+        sHost := aIP.Host + ': ' + sHost;
+      Result := (Format(SPingResultString, [sHost, pIPE^.DataSize, pIPE^.RTT,
+        pIPE^.Options.TTL]));
+    end;
+  end;
+end;
+
+function TCnPing.GetIPByName(const aName: string; var aIP: string): Boolean;
+begin
+  Result := TCnIp.GetIPByName(aIP, aName);
+end;
+
+function TCnPing.SetIP(aIPAddr, aHost: string; var aIP: TCnIpInfo): Boolean;
+var
+  pIPAddr: PAnsiChar;
+begin
+  Result := False;
+  aIP.Address := INADDR_NONE;
+  aIP.IP := aIPAddr;
+  aIP.Host := aHost;
+  if aIP.IP = '' then
+  begin
+    if (aIP.Host = '') or (not GetIPByName(aIP.Host, aIP.IP)) then
+      Exit;
+  end;
+
+  GetMem(pIPAddr, Length(aIP.IP) + 1);
+  try
+    FillChar(pIPAddr^, Length(aIP.IP) + 1, 0);
+    StrPCopy(pIPAddr, {$IFDEF UNICODE}AnsiString{$ENDIF}(aIP.IP));
+    aIP.Address := inet_addr(PAnsiChar(pIPAddr)); // IP转换成无点整型
+  finally
+    FreeMem(pIPAddr); // 释放申请的动态内存
+  end;
+  Result := aIP.Address <> INADDR_NONE;
+end;
+
+{$IFDEF MSWINDOWS}
+
+initialization
+
+finalization
+  FreeIcmpFunctions;
+
+{$ENDIF}
+
+end.

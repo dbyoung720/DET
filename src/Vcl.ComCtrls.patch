@@ -1,0 +1,91 @@
+diff --git a/E:/RS132/source/vcl/Vcl.ComCtrls.pas b/E:/Working/DET/src/Vcl.ComCtrls.pas
+index b11e3bdc..401acccc 100644
+--- a/E:/RS132/source/vcl/Vcl.ComCtrls.pas
++++ b/E:/Working/DET/src/Vcl.ComCtrls.pas
+@@ -1213,6 +1213,7 @@ type
+     FInTree: Boolean;
+     FEnabled: Boolean;
+     FExpandedImageIndex: TImageIndex;
++    FHint: string; // 新增
+     function CompareCount(CompareMe: Integer): Boolean;
+     function DoCanExpand(Expand: Boolean): Boolean;
+     procedure DoExpand(Expand: Boolean);
+@@ -1329,6 +1330,7 @@ type
+     property StateIndex: Integer read FStateIndex write SetStateIndex;
+     property Text: string read FText write SetText;
+     property TreeView: TCustomTreeView read GetTreeView;
++    property Hint: string read FHint write FHint; // 新增
+   end;
+ 
+ { TTreeNodesEnumerator }
+@@ -10305,6 +10307,22 @@ begin
+         SetLength(LText, Info3x86.TextLen); // Info3x86.TextLen holds number of chars of Unicode string
+         Stream.ReadBuffer(LText[1], Info3x86.TextLen * SizeOf(WideChar));
+         Text := LText;
++
++        // 新增；读取 hint
++        var LHint   : UnicodeString := '';
++        var OldSize := SizeOf(Info3x86) + Info3x86.TextLen * SizeOf(WideChar);
++        if Size > OldSize then
++        begin
++          var LHintLen : Integer := 0;
++          Stream.ReadBuffer(LHintLen, SizeOf(Integer));
++          if LHintLen > 0 then
++          begin
++            SetLength(LHint, LHintLen);
++            Stream.ReadBuffer(LHint[1], LHintLen * SizeOf(WideChar));
++          end;
++        end;
++        Hint := LHint;
++
+         ImageIndex := Info3x86.ImageIndex;
+         SelectedIndex := Info3x86.SelectedIndex;
+         StateIndex := Info3x86.StateIndex;
+@@ -10337,6 +10355,22 @@ begin
+         SetLength(LText, Info3x64.TextLen); // Info3x64.TextLen holds number of chars of Unicode string
+         Stream.ReadBuffer(LText[1], Info3x64.TextLen * SizeOf(WideChar));
+         Text := LText;
++
++        // 新增；读取 hint
++        var LHint   : UnicodeString := '';
++        var OldSize := SizeOf(Info3x64) + Info3x64.TextLen * SizeOf(WideChar);
++        if Size > OldSize then
++        begin
++          var LHintLen : Integer := 0;
++          Stream.ReadBuffer(LHintLen, SizeOf(Integer));
++          if LHintLen > 0 then
++          begin
++            SetLength(LHint, LHintLen);
++            Stream.ReadBuffer(LHint[1], LHintLen * SizeOf(WideChar));
++          end;
++        end;
++        Hint := LHint;
++
+         ImageIndex := Info3x64.ImageIndex;
+         SelectedIndex := Info3x64.SelectedIndex;
+         StateIndex := Info3x64.StateIndex;
+@@ -10416,6 +10450,11 @@ begin
+     LTextLen := 255;  // Max length for an item is 255 chars
+   Info.TextLen := LTextLen;
+   Size := SizeOf(TNodeDataInfo3) + (Info.TextLen * SizeOf(WideChar)); // Length in bytes
++
++  // *** 新增；hint 大小、内容，所占用的空间大小
++  var LHintLen : Integer := Length(Hint);
++  Size := Size + SizeOf(Integer) + LHintLen * SizeOf(WideChar);
++
+   Info.ImageIndex := ImageIndex;
+   Info.SelectedIndex := SelectedIndex;
+   Info.OverlayIndex := OverlayIndex;
+@@ -10435,6 +10474,12 @@ begin
+   Stream.WriteBuffer(Size, SizeOf(Size));
+   Stream.WriteBuffer(Info, SizeOf(TNodeDataInfo3));
+   Stream.WriteBuffer(LText[1], Info.TextLen * SizeOf(WideChar)); // Length in bytes
++
++  // *** 新增；写入 hint 的大小和内容
++  Stream.WriteBuffer(LHintLen, SizeOf(LHintLen));             // 写入 hint 字符串长度
++  if LHintLen > 0 then                                        //  hint 字符串长度 > 0 时，才写入 hint 字符串内容
++    Stream.WriteBuffer(Hint[1], LHintLen * SizeOf(WideChar)); // 写入 hint 字符串内容
++
+   LNode := getFirstChild;
+   for I := 0 to Info.Count - 1 do
+   begin

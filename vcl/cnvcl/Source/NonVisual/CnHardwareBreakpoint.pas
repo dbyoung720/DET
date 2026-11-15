@@ -1,0 +1,335 @@
+{******************************************************************************}
+{                                                                              }
+{                       CnPack For Delphi/C++Builder                           }
+{                     中国人自己的开放源码第三方开发包                         }
+{                   (C)Copyright 2001-2026 CnPack 开发组                       }
+{                   ------------------------------------                       }
+{                                                                              }
+{            本开发包是开源的自由软件，您可以遵照 CnPack 的发布协议来修        }
+{        改和重新发布这一程序。                                                }
+{                                                                              }
+{            发布这一开发包的目的是希望它有用，但没有任何担保。甚至没有        }
+{        适合特定目的而隐含的担保。更详细的情况请参阅 CnPack 发布协议。        }
+{                                                                              }
+{            您应该已经和开发包一起收到一份 CnPack 发布协议的副本。如果        }
+{        还没有，可访问我们的网站：                                            }
+{                                                                              }
+{            网站地址：https://www.cnpack.org                                  }
+{            电子邮件：master@cnpack.org                                       }
+{                                                                              }
+{******************************************************************************}
+
+unit CnHardwareBreakpoint;
+{* |<PRE>
+================================================================================
+* 软件名称：不可视工具组件包
+* 单元名称：硬件断点类，代码硬件 HOOK 单元，不支持 Win64
+* 单元作者：CodeGame
+* 备    注：提供类表：TCGL_VectoredException, TCGL_HardwareBreakpoints
+* 开发平台：PWinXP + Delphi 2007
+* 兼容测试：暂无
+* 修改记录：2013.08.08 v1.0
+*               移植单元
+================================================================================
+|</PRE>}
+
+interface
+
+{$I CnPack.inc}
+
+{$IFDEF WIN32}
+
+uses
+  Windows, SysUtils, Classes;
+
+const
+  THREAD_ALL_ACCESS = (STANDARD_RIGHTS_REQUIRED or SYNCHRONIZE or $3FF);
+
+type
+  TCallbackInstance = array[1..12] of Byte; // 对象成员回调
+
+  PExceptionPointers = ^TExceptionPointers;
+  TVEHCallbackProc = function(pException: PExceptionPointers): Integer of object; stdcall;
+  THardwareBreakError = procedure(ErrorId: Integer; Error: Exception; pException: PExceptionPointers) of object;
+
+  TCnVectoredException = class(TComponent) // VEH 基类
+  private
+    FHandler: Pointer; // VEH 句柄
+    FOnCallback: TVEHCallbackProc;
+    FOnCallbackInstance: TCallbackInstance;
+    procedure MakeCallbackInstance(var Instance: TCallbackInstance; ObjectAddr, FunctionAddr: Pointer);
+    procedure SetBreakCallbackProc(FunctionAddr: Pointer); // 设置回调函数地址
+  protected
+    function DoVEHCallback(pException: PExceptionPointers): Integer; virtual; stdcall;
+  public
+    constructor Create(AOwner: TComponent); override;
+    destructor Destroy; override;
+    function InstallVEH: boolean; virtual; // 安装 VEH
+    procedure RemoveVEH; virtual; // 卸载 VEH
+
+    property OnCallback: TVEHCallbackProc read FOnCallback write FOnCallback;
+  published
+
+  end;
+
+  PBreakpointsProc = ^TBreakpointProc;
+  TBreakpointProc = procedure(pException: PExceptionPointers) of object;
+
+  TCnHardwareBreakpoint = class(TCnVectoredException) //硬断点类
+  private
+    FDr1: DWORD;
+    FDr2: DWORD;
+    FDr3: DWORD;
+    FDr4: DWORD;
+    FOnBreakpoint1: TBreakpointProc;
+    FOnBreakpoint2: TBreakpointProc;
+    FOnBreakpoint3: TBreakpointProc;
+    FOnBreakpoint4: TBreakpointProc;
+    FOnHardwareBreakError: THardwareBreakError;
+  protected
+    function DoVEHCallback(pException: PExceptionPointers): Integer; override; stdcall;
+    procedure DoBreakpoint1(pException: PExceptionPointers); virtual;
+    procedure DoBreakpoint2(pException: PExceptionPointers); virtual;
+    procedure DoBreakpoint3(pException: PExceptionPointers); virtual;
+    procedure DoBreakpoint4(pException: PExceptionPointers); virtual;
+    procedure DoHardwareBreakError(ErrorId: Integer; Error: Exception; pException: PExceptionPointers); virtual;
+  public
+    constructor Create(AOwner: TComponent); override;
+    destructor Destroy; override;
+    procedure ClearBreakpoints;
+    procedure SetBreakpoints; // 设置硬件断点使其生效
+
+  published
+    property BreakpointsAdderss1: DWORD read FDr1 write FDr1 default 0;
+    property BreakpointsAdderss2: DWORD read FDr2 write FDr2 default 0;
+    property BreakpointsAdderss3: DWORD read FDr3 write FDr3 default 0;
+    property BreakpointsAdderss4: DWORD read FDr4 write FDr4 default 0;
+    property OnBreakpoint1: TBreakpointProc read FOnBreakpoint1 write FOnBreakpoint1;
+    property OnBreakpoint2: TBreakpointProc read FOnBreakpoint2 write FOnBreakpoint2;
+    property OnBreakpoint3: TBreakpointProc read FOnBreakpoint3 write FOnBreakpoint3;
+    property OnBreakpoint4: TBreakpointProc read FOnBreakpoint4 write FOnBreakpoint4;
+    property OnHardwareBreakError: THardwareBreakError read FOnHardwareBreakError write FOnHardwareBreakError;
+
+  end;
+
+{$ENDIF}
+
+implementation
+
+{$IFDEF WIN32}
+
+{ TCnVectoredException }
+
+procedure TCnVectoredException.MakeCallbackInstance(var Instance: TCallbackInstance; ObjectAddr, FunctionAddr: Pointer);
+  {----------------------------}
+  { CallbackCode DASM          }
+  {----------------------------}
+  {    POP EAX;                }
+  {    PUSH ObjectAddr;        }
+  {    PUSH EAX;               }
+  {    JMP FunctionAddr;       }
+  {----------------------------}
+const CallbackCode: TCallbackInstance =
+//($8B,$04,$24,$50,$B8,$00,$00,$00,$00,$89,$44,$24,$04,$E9,$00,$00,$00,$00);
+  ($58, $68, $00, $00, $00, $00, $50, $E9, $00, $00, $00, $00);
+begin
+  Move(CallbackCode, Instance, SizeOf(TCallbackInstance));
+  PDWORD(@Instance[3])^ := DWORD(ObjectAddr);
+  PDWORD(@Instance[9])^ := DWORD(DWORD(FunctionAddr) - DWORD(@Instance) - 12);
+end;
+
+procedure TCnVectoredException.SetBreakCallbackProc(FunctionAddr: Pointer);
+begin
+  MakeCallbackInstance(FOnCallbackInstance, Self, FunctionAddr);
+end;
+
+constructor TCnVectoredException.Create(AOwner: TComponent);
+begin
+  inherited;
+
+  FHandler := 0;
+  SetBreakCallbackProc(@TCnVectoredException.DoVEHCallback);
+  InstallVEH;
+end;
+
+destructor TCnVectoredException.Destroy;
+begin
+  RemoveVEH;
+  inherited;
+end;
+
+function TCnVectoredException.InstallVEH: boolean;
+type
+  TAddVectored = function(FirstHandler: Integer; VectoredHandler: Pointer): Pointer; stdcall;
+var
+  _pAddVectored: TAddVectored;
+  H: THandle;
+begin
+  Result := False;
+  if FHandler <> nil then Exit;
+
+  H := LoadLibrary('Kernel32.dll');
+  _pAddVectored := GetProcAddress(H, 'AddVectoredExceptionHandler');
+  try
+    if not Assigned(_pAddVectored) then Exit;
+    FHandler := _pAddVectored(1, @Self.FOnCallbackInstance); // 安装 VEH
+  finally
+    FreeLibrary(H);
+  end;
+  Result := True;
+end;
+
+procedure TCnVectoredException.RemoveVEH;
+type
+  TRemoveVectored = function(VectoredHandler: Pointer): Integer; stdcall;
+var
+  _pRemoveVectored: TRemoveVectored;
+  H: THandle;
+begin
+  if FHandler = nil then Exit;
+
+  H := LoadLibrary('Kernel32.dll');
+  _pRemoveVectored := GetProcAddress(H, 'RemoveVectoredExceptionHandler');
+  try
+    if Assigned(_pRemoveVectored) then _pRemoveVectored(FHandler); // 卸载 VEH
+  finally
+    FreeLibrary(H);
+  end;
+  FHandler := 0;
+end;
+
+function TCnVectoredException.DoVEHCallback(pException: PExceptionPointers): Integer;
+begin
+  Result := 0;
+  if Assigned(FOnCallback) then
+  try
+    Result := FOnCallback(pException);
+  except
+  end;
+end;
+
+{ TCnHardwareBreakpoint }
+
+procedure TCnHardwareBreakpoint.ClearBreakpoints;
+var
+  _Regs: CONTEXT;
+begin
+  {设置断点}
+  FDr1 := 0;
+  FDr2 := 0;
+  FDr3 := 0;
+  FDr4 := 0;
+  _Regs.ContextFlags := CONTEXT_DEBUG_REGISTERS;
+  GetThreadContext(GetCurrentThread, _Regs);
+  _Regs.Dr0 := FDr1;
+  _Regs.Dr1 := FDr2;
+  _Regs.Dr2 := FDr3;
+  _Regs.Dr3 := FDr4;
+  _Regs.Dr7 := $7FF;
+  SetThreadContext(GetCurrentThread, _Regs);
+end;
+
+constructor TCnHardwareBreakpoint.Create(AOwner: TComponent);
+begin
+  inherited;
+  FDr1 := 0;
+  FDr2 := 0;
+  FDr3 := 0;
+  FDr4 := 0;
+  SetBreakCallbackProc(@TCnHardwareBreakpoint.DoVEHCallback);
+end;
+
+destructor TCnHardwareBreakpoint.Destroy;
+begin
+  ClearBreakpoints;
+  inherited;
+end;
+
+procedure TCnHardwareBreakpoint.DoBreakpoint1(pException: PExceptionPointers);
+begin
+  if Assigned(FOnBreakpoint1) then
+  try
+    FOnBreakpoint1(pException);
+  except
+    on Error: Exception do
+      DoHardwareBreakError(1, Error, pException);
+  end;
+end;
+
+procedure TCnHardwareBreakpoint.DoBreakpoint2(pException: PExceptionPointers);
+begin
+  if Assigned(FOnBreakpoint2) then
+  try
+    FOnBreakpoint2(pException);
+  except
+    on Error: Exception do
+      DoHardwareBreakError(2, Error, pException);
+  end;
+end;
+
+procedure TCnHardwareBreakpoint.DoBreakpoint3(pException: PExceptionPointers);
+begin
+  if Assigned(FOnBreakpoint3) then
+  try
+    FOnBreakpoint3(pException);
+  except
+    on Error: Exception do
+      DoHardwareBreakError(3, Error, pException);
+  end;
+end;
+
+procedure TCnHardwareBreakpoint.DoBreakpoint4(pException: PExceptionPointers);
+begin
+  if Assigned(FOnBreakpoint4) then
+  try
+    FOnBreakpoint4(pException);
+  except
+    on Error: Exception do
+      DoHardwareBreakError(4, Error, pException);
+  end;
+end;
+
+
+procedure TCnHardwareBreakpoint.DoHardwareBreakError(ErrorId: Integer; Error: Exception;
+  pException: PExceptionPointers); // 异常处理
+begin
+  if Assigned(FOnHardwareBreakError) then
+    FOnHardwareBreakError(ErrorId, Error, pException);
+end;
+
+function TCnHardwareBreakpoint.DoVEHCallback(pException: PExceptionPointers): Integer;
+begin
+  Result := 0;
+  case PException^.ExceptionRecord^.ExceptionCode of
+    EXCEPTION_SINGLE_STEP:
+      begin
+        if PException^.ContextRecord^.Eip = FDr1 then
+          DoBreakpoint1(pException)
+        else if PException^.ContextRecord^.Eip = FDr2 then
+          DoBreakpoint2(pException)
+        else if PException^.ContextRecord^.Eip = FDr3 then
+          DoBreakpoint3(pException)
+        else if PException^.ContextRecord^.Eip = FDr4 then
+          DoBreakpoint4(pException);
+        Result := -1;
+      end;
+  end;
+end;
+
+procedure TCnHardwareBreakpoint.SetBreakpoints;
+var
+  _Regs: CONTEXT;
+begin
+  {设置断点}
+  _Regs.ContextFlags := CONTEXT_DEBUG_REGISTERS;
+  GetThreadContext(GetCurrentThread, _Regs);
+  _Regs.Dr0 := FDr1;
+  _Regs.Dr1 := FDr2;
+  _Regs.Dr2 := FDr3;
+  _Regs.Dr3 := FDr4;
+  _Regs.Dr7 := $7FF;
+  SetThreadContext(GetCurrentThread, _Regs);
+end;
+
+{$ENDIF}
+end.

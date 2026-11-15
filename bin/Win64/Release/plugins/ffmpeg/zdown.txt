@@ -1,0 +1,2 @@
+https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-21-14-46/ffmpeg-N-126239-g88ae625e69-win32-gpl-shared.zip
+https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2026-08-21-14-46/ffmpeg-N-126239-g88ae625e69-win64-gpl-shared.zip

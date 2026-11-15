@@ -1,0 +1,161 @@
+unit server;
+
+interface
+
+{$I mormot.defines.inc}
+uses
+  SysUtils,
+  Contnrs,
+  mormot.core.base,
+  mormot.core.os,
+  mormot.core.log,
+  mormot.core.data,
+  mormot.core.unicode,
+  mormot.orm.base,
+  mormot.orm.core,
+  mormot.orm.rest,
+  mormot.rest.server,
+  mormot.soa.core,
+  mormot.soa.server,
+  mormot.rest.sqlite3,
+  mormot.db.raw.sqlite3.static,
+  data;
+
+type
+  TExampleService = class(TInjectableObjectRest, IExample)
+  public
+    function Add(var ASample: TSample): Integer;
+    function Find(var ASample: TSample): Integer;
+    function List(out ASamples: TSampleInfoDynArray): Integer;
+    function Delete(AID: TID): Integer;
+  end;
+
+  TSampleServer = class(TRestServerDB)
+  public
+    constructor Create(aModel: TOrmModel; const aDBFileName: TFileName);
+        reintroduce;  
+  end;
+
+
+function CreateSampleModel: TOrmModel;
+
+
+implementation
+
+type
+  TOrmSample = class(TOrm)
+  private
+    FName: RawUTF8;
+    FQuestion: RawUTF8;
+    FTime: TModTime;
+  published
+    property Name: RawUTF8 read FName write FName;
+    property Question: RawUTF8 read FQuestion write FQuestion;
+    property Time: TModTime read FTime write FTime;
+  end;
+  TOrmSampleObjArray = array of TOrmSample;
+
+function CreateSampleModel: TOrmModel;
+begin
+  result := TOrmModel.Create([TOrmSample]);
+end;
+
+
+
+{
+******************************* TExampleService ********************************
+}
+function TExampleService.Add(var ASample: TSample): Integer;
+var
+  OrmSample: TOrmSample;
+begin
+  OrmSample := TOrmSample.Create;
+  try
+    OrmSample.Name := ASample.Name;
+    OrmSample.Question := ASample.Question;
+    if Self.Server.Orm.Add(OrmSample, true) > 0 then
+    begin
+      TSynLog.Add.Log(sllTrace, 'Add: Record created OK', self);
+      Result := 0;
+    end
+    else
+    begin
+      TSynLog.Add.Log(sllWarning, 'Add: Error creating Record', self);
+      Result := -1;
+    end;
+  finally
+    OrmSample.Free;
+  end;
+end;
+
+function TExampleService.Find(var ASample: TSample): Integer;
+var
+  OrmSample: TOrmSample;
+begin
+  OrmSample := TOrmSample.Create(Self.Server.Orm,'Name=?',[ASample.Name]);
+  try
+    if OrmSample.ID = 0 then
+    begin
+      TSynLog.Add.Log(sllWarning, 'Find: Error reading Record', self);
+      Result := -1;
+    end
+    else
+    begin
+      TSynLog.Add.Log(sllTrace, 'Find: Record found OK', self);
+      ASample.Name := OrmSample.Name;
+      ASample.Question := OrmSample.Question;
+      Result := 0;
+    end;
+  finally
+    OrmSample.Free;
+  end;
+end;
+
+function TExampleService.List(out ASamples: TSampleInfoDynArray): Integer;
+var
+  OrmSamples: TOrmSampleObjArray;
+  i: Integer;
+begin
+  if Self.Server.Orm.RetrieveListObjArray(OrmSamples, TOrmSample, '', []) then
+  try
+    Result := length(OrmSamples);
+    SetLength(ASamples, Result);
+    for i := 0 to result - 1 do
+    begin
+      ASamples[i].ID := TOrmSample(OrmSamples[i]).ID;
+      ASamples[i].Name := TOrmSample(OrmSamples[i]).Name;
+    end;
+  finally
+    ObjArrayClear(OrmSamples);
+  end
+  else
+    Result := 0;
+  TSynLog.Add.Log(sllTrace, 'List: returned % records', [Result], self);
+end;
+
+function TExampleService.Delete(AID: TID): Integer;
+begin
+  if Self.Server.Orm.Delete(TOrmSample, AID) then
+  begin
+    TSynLog.Add.Log(sllTrace, 'Delete(%) OK', [AID], self);
+    Result := 0;
+  end
+  else
+  begin
+    TSynLog.Add.Log(sllWarning, 'Delete: error deleting Record', self);
+    Result := -1;
+  end;
+end;
+
+{
+******************************** TSampleServer *********************************
+}
+constructor TSampleServer.Create(aModel: TOrmModel;
+  const aDBFileName: TFileName);
+begin
+  inherited Create(AModel, ADBFileName);
+  ServiceDefine(TExampleService, [IExample], sicShared);
+end;
+
+
+end.

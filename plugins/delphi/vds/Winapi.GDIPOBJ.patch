@@ -1,0 +1,54 @@
+diff --git a/E:/RS132/source/rtl/win/Winapi.GDIPOBJ.pas b/E:/Working/DET/plugins/delphi/vds/Winapi.GDIPOBJ.pas
+index 033a4b77..57a814b8 100644
+--- a/E:/RS132/source/rtl/win/Winapi.GDIPOBJ.pas
++++ b/E:/Working/DET/plugins/delphi/vds/Winapi.GDIPOBJ.pas
+@@ -1496,6 +1496,9 @@ var
+ 
+ ////////////////////////////////////////////////////////////////////////////////
+ 
++procedure InitGDIPLUS;
++procedure FreeGDIPLUS;
++
+ implementation
+ 
+ (**************************************************************************\
+@@ -8048,19 +8051,17 @@ implementation
+      // écrase la fonction parent
+   end;
+ 
+-initialization
+-  if not IsLibrary then
+-  begin
+-    // Initialize StartupInput structure
+-    StartupInput.DebugEventCallback := nil;
+-    StartupInput.SuppressBackgroundThread := False;
+-    StartupInput.SuppressExternalCodecs   := False;
+-    StartupInput.GdiplusVersion := 1;
++procedure InitGDIPLUS;
++begin
++  StartupInput.DebugEventCallback := nil;
++  StartupInput.SuppressBackgroundThread := False;
++  StartupInput.SuppressExternalCodecs   := False;
++  StartupInput.GdiplusVersion := 1;
++  GdiplusStartup(gdiplusToken, @StartupInput, nil);
++end;
+ 
+-    GdiplusStartup(gdiplusToken, @StartupInput, nil);
+-  end;
+-
+-finalization
++procedure FreeGDIPLUS;
++begin
+   if Assigned(GenericSansSerifFontFamily) then
+     GenericSansSerifFontFamily.Free;
+   if Assigned(GenericSerifFontFamily) then
+@@ -8072,6 +8073,7 @@ finalization
+   if Assigned(GenericDefaultStringFormatBuffer) then
+     GenericDefaultStringFormatBuffer.Free;
+ 
+-  if not IsLibrary then
+-    GdiplusShutdown(gdiplusToken);
++  GdiplusShutdown(gdiplusToken);
++end;
++
+ end.

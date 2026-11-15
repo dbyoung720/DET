@@ -1,0 +1,240 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{72B4221D-EDD9-4A7A-9DC0-B6717A6E0DEA}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\..\src\det.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CheckCPU\ccpu.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="china\china.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dcv\dcv.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="edge\edge.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="env\env.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="HelloJava\HelloJava.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="jcv\jcv.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="mft\mft.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="plist\plist.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="pm\pm.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="sImage\sImage.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="sInfo\sInfo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="snap\snap.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="sPath\sp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="vds\vds.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="vdt\vdt.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dvp\dvp.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="det">
+        <MSBuild Projects="..\..\src\det.dproj"/>
+    </Target>
+    <Target Name="det:Clean">
+        <MSBuild Projects="..\..\src\det.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="det:Make">
+        <MSBuild Projects="..\..\src\det.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ccpu">
+        <MSBuild Projects="CheckCPU\ccpu.dproj"/>
+    </Target>
+    <Target Name="ccpu:Clean">
+        <MSBuild Projects="CheckCPU\ccpu.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ccpu:Make">
+        <MSBuild Projects="CheckCPU\ccpu.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="china">
+        <MSBuild Projects="china\china.dproj"/>
+    </Target>
+    <Target Name="china:Clean">
+        <MSBuild Projects="china\china.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="china:Make">
+        <MSBuild Projects="china\china.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dcv">
+        <MSBuild Projects="dcv\dcv.dproj"/>
+    </Target>
+    <Target Name="dcv:Clean">
+        <MSBuild Projects="dcv\dcv.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dcv:Make">
+        <MSBuild Projects="dcv\dcv.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="edge">
+        <MSBuild Projects="edge\edge.dproj"/>
+    </Target>
+    <Target Name="edge:Clean">
+        <MSBuild Projects="edge\edge.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="edge:Make">
+        <MSBuild Projects="edge\edge.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="env">
+        <MSBuild Projects="env\env.dproj"/>
+    </Target>
+    <Target Name="env:Clean">
+        <MSBuild Projects="env\env.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="env:Make">
+        <MSBuild Projects="env\env.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="HelloJava">
+        <MSBuild Projects="HelloJava\HelloJava.dproj"/>
+    </Target>
+    <Target Name="HelloJava:Clean">
+        <MSBuild Projects="HelloJava\HelloJava.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="HelloJava:Make">
+        <MSBuild Projects="HelloJava\HelloJava.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="jcv">
+        <MSBuild Projects="jcv\jcv.dproj"/>
+    </Target>
+    <Target Name="jcv:Clean">
+        <MSBuild Projects="jcv\jcv.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="jcv:Make">
+        <MSBuild Projects="jcv\jcv.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="mft">
+        <MSBuild Projects="mft\mft.dproj"/>
+    </Target>
+    <Target Name="mft:Clean">
+        <MSBuild Projects="mft\mft.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="mft:Make">
+        <MSBuild Projects="mft\mft.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="plist">
+        <MSBuild Projects="plist\plist.dproj"/>
+    </Target>
+    <Target Name="plist:Clean">
+        <MSBuild Projects="plist\plist.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="plist:Make">
+        <MSBuild Projects="plist\plist.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="pm">
+        <MSBuild Projects="pm\pm.dproj"/>
+    </Target>
+    <Target Name="pm:Clean">
+        <MSBuild Projects="pm\pm.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="pm:Make">
+        <MSBuild Projects="pm\pm.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="sImage">
+        <MSBuild Projects="sImage\sImage.dproj"/>
+    </Target>
+    <Target Name="sImage:Clean">
+        <MSBuild Projects="sImage\sImage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="sImage:Make">
+        <MSBuild Projects="sImage\sImage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="sInfo">
+        <MSBuild Projects="sInfo\sInfo.dproj"/>
+    </Target>
+    <Target Name="sInfo:Clean">
+        <MSBuild Projects="sInfo\sInfo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="sInfo:Make">
+        <MSBuild Projects="sInfo\sInfo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="snap">
+        <MSBuild Projects="snap\snap.dproj"/>
+    </Target>
+    <Target Name="snap:Clean">
+        <MSBuild Projects="snap\snap.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="snap:Make">
+        <MSBuild Projects="snap\snap.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="sp">
+        <MSBuild Projects="sPath\sp.dproj"/>
+    </Target>
+    <Target Name="sp:Clean">
+        <MSBuild Projects="sPath\sp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="sp:Make">
+        <MSBuild Projects="sPath\sp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="vds">
+        <MSBuild Projects="vds\vds.dproj"/>
+    </Target>
+    <Target Name="vds:Clean">
+        <MSBuild Projects="vds\vds.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="vds:Make">
+        <MSBuild Projects="vds\vds.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="vdt">
+        <MSBuild Projects="vdt\vdt.dproj"/>
+    </Target>
+    <Target Name="vdt:Clean">
+        <MSBuild Projects="vdt\vdt.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="vdt:Make">
+        <MSBuild Projects="vdt\vdt.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dvp">
+        <MSBuild Projects="dvp\dvp.dproj"/>
+    </Target>
+    <Target Name="dvp:Clean">
+        <MSBuild Projects="dvp\dvp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dvp:Make">
+        <MSBuild Projects="dvp\dvp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="det;ccpu;china;dcv;edge;env;HelloJava;jcv;mft;plist;pm;sImage;sInfo;snap;sp;vds;vdt;dvp"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="det:Clean;ccpu:Clean;china:Clean;dcv:Clean;edge:Clean;env:Clean;HelloJava:Clean;jcv:Clean;mft:Clean;plist:Clean;pm:Clean;sImage:Clean;sInfo:Clean;snap:Clean;sp:Clean;vds:Clean;vdt:Clean;dvp:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="det:Make;ccpu:Make;china:Make;dcv:Make;edge:Make;env:Make;HelloJava:Make;jcv:Make;mft:Make;plist:Make;pm:Make;sImage:Make;sInfo:Make;snap:Make;sp:Make;vds:Make;vdt:Make;dvp:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5E025583-90F7-4F90-93C7-991F94D6461E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DSPack_D7.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DSPackDesign_D7.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DSPack_D7">
+        <MSBuild Projects="DSPack_D7.dproj"/>
+    </Target>
+    <Target Name="DSPack_D7:Clean">
+        <MSBuild Projects="DSPack_D7.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DSPack_D7:Make">
+        <MSBuild Projects="DSPack_D7.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DSPackDesign_D7">
+        <MSBuild Projects="DSPackDesign_D7.dproj"/>
+    </Target>
+    <Target Name="DSPackDesign_D7:Clean">
+        <MSBuild Projects="DSPackDesign_D7.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DSPackDesign_D7:Make">
+        <MSBuild Projects="DSPackDesign_D7.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DSPack_D7;DSPackDesign_D7"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DSPack_D7:Clean;DSPackDesign_D7:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DSPack_D7:Make;DSPackDesign_D7:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

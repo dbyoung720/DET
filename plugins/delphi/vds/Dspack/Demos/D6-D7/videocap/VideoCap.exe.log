@@ -1,0 +1,1077 @@
+10:32:33 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] CREATE
+10:32:33 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+10:32:34 > TBCEnumMediaTypes.Create
+10:32:34 > TBCEnumMediaTypes.Destroy
+10:32:34 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] FREE
+10:32:34 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] FREE
+10:32:37 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] CREATE
+10:32:37 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+10:32:37 > Object: 康视通 VCamera Capture, msg: Trying to connect Pins :.
+10:32:37 > Object: 康视通 VCamera Capture, msg:     <Output>.
+10:32:37 > Object: 康视通 VCamera Capture, msg:     <Input>.
+10:32:37 > TBCEnumMediaTypes.Create
+10:32:37 > Object: 康视通 VCamera Capture, msg: Trying media type:.
+10:32:37 > Object: 康视通 VCamera Capture, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+10:32:37 > Object: 康视通 VCamera Capture, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+10:32:37 > Object: 康视通 VCamera Capture, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+10:32:37 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+10:32:37 > TBCEnumMediaTypes.Destroy
+10:32:37 > Object: 康视通 VCamera Capture, msg: Connection succeeded.
+10:32:37 > TBCEnumMediaTypes.Create
+10:32:37 > TBCEnumMediaTypes.Destroy
+10:32:37 > TBCEnumMediaTypes.Create
+10:32:37 > TBCEnumMediaTypes.Destroy
+10:32:37 > Object: 康视通 VCamera Capture, msg: Trying to connect Pins :.
+10:32:37 > Object: 康视通 VCamera Capture, msg:     <Output>.
+10:32:37 > Object: 康视通 VCamera Capture, msg:     <Input>.
+10:32:37 > TBCEnumMediaTypes.Create
+10:32:37 > Object: 康视通 VCamera Capture, msg: Trying media type:.
+10:32:37 > Object: 康视通 VCamera Capture, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+10:32:37 > Object: 康视通 VCamera Capture, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+10:32:37 > Object: 康视通 VCamera Capture, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+10:32:37 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+10:32:37 > TBCEnumMediaTypes.Destroy
+10:32:37 > Object: 康视通 VCamera Capture, msg: Connection succeeded.
+10:32:37 > TBCEnumMediaTypes.Create
+10:32:37 > TBCEnumMediaTypes.Destroy
+10:32:37 > TBCEnumMediaTypes.Create
+10:32:37 > TBCEnumMediaTypes.Destroy
+10:32:37 > Object: 康视通 VCamera Capture, msg: Worker thread initializing.
+10:32:37 > Object: 康视通 VCamera Capture, msg: Worker thread initializing.
+10:32:39 > Deliver() returned 80040227; stopping
+10:32:39 > Object: 康视通 VCamera Capture, msg: worker thread exiting.
+10:32:39 > Object: 康视通 VCamera Capture, msg: worker thread exiting.
+10:32:39 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] FREE
+10:32:39 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] FREE
+10:32:39 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] FREE
+FactoryCount: 0, ObjectCount: 1.
+10:33:18 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] CREATE
+10:33:18 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+10:33:18 > TBCEnumMediaTypes.Create
+10:33:18 > TBCEnumMediaTypes.Destroy
+10:33:18 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] FREE
+10:33:18 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] FREE
+10:33:27 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] CREATE
+10:33:27 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+10:33:27 > Object: 康视通 VCamera Capture, msg: Trying to connect Pins :.
+10:33:27 > Object: 康视通 VCamera Capture, msg:     <Output>.
+10:33:27 > Object: 康视通 VCamera Capture, msg:     <Input>.
+10:33:27 > TBCEnumMediaTypes.Create
+10:33:27 > Object: 康视通 VCamera Capture, msg: Trying media type:.
+10:33:27 > Object: 康视通 VCamera Capture, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+10:33:27 > Object: 康视通 VCamera Capture, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+10:33:27 > Object: 康视通 VCamera Capture, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+10:33:27 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+10:33:27 > TBCEnumMediaTypes.Destroy
+10:33:27 > Object: 康视通 VCamera Capture, msg: Connection succeeded.
+10:33:27 > TBCEnumMediaTypes.Create
+10:33:27 > TBCEnumMediaTypes.Destroy
+10:33:27 > TBCEnumMediaTypes.Create
+10:33:27 > TBCEnumMediaTypes.Destroy
+10:33:27 > Object: 康视通 VCamera Capture, msg: Trying to connect Pins :.
+10:33:27 > Object: 康视通 VCamera Capture, msg:     <Output>.
+10:33:27 > Object: 康视通 VCamera Capture, msg:     <Input>.
+10:33:27 > TBCEnumMediaTypes.Create
+10:33:27 > Object: 康视通 VCamera Capture, msg: Trying media type:.
+10:33:27 > Object: 康视通 VCamera Capture, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+10:33:27 > Object: 康视通 VCamera Capture, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+10:33:27 > Object: 康视通 VCamera Capture, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+10:33:27 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+10:33:27 > TBCEnumMediaTypes.Destroy
+10:33:27 > Object: 康视通 VCamera Capture, msg: Connection succeeded.
+10:33:27 > TBCEnumMediaTypes.Create
+10:33:27 > TBCEnumMediaTypes.Destroy
+10:33:27 > TBCEnumMediaTypes.Create
+10:33:27 > TBCEnumMediaTypes.Destroy
+10:33:27 > Object: 康视通 VCamera Capture, msg: Worker thread initializing.
+10:33:27 > Object: 康视通 VCamera Capture, msg: Worker thread initializing.
+10:33:32 > Deliver() returned 80040227; stopping
+10:33:32 > Object: 康视通 VCamera Capture, msg: worker thread exiting.
+10:33:32 > Object: 康视通 VCamera Capture, msg: worker thread exiting.
+10:33:32 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] FREE
+10:33:32 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] FREE
+10:33:32 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] FREE
+FactoryCount: 0, ObjectCount: 1.
+11:17:38 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] CREATE
+11:17:38 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+11:17:38 > TBCEnumMediaTypes.Create
+11:17:38 > TBCEnumMediaTypes.Destroy
+11:17:38 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] FREE
+11:17:38 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] FREE
+11:17:40 > [TKSTVCameraCaptureFilter: 康视通 VCamera Capture] CREATE
+11:17:40 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+11:17:41 > Object: 康视通 VCamera Capture, msg: Trying to connect Pins :.
+11:17:41 > Object: 康视通 VCamera Capture, msg:     <Output>.
+11:17:41 > Object: 康视通 VCamera Capture, msg:     <Input>.
+11:17:41 > TBCEnumMediaTypes.Create
+11:17:41 > Object: 康视通 VCamera Capture, msg: Trying media type:.
+11:17:41 > Object: 康视通 VCamera Capture, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+11:17:41 > Object: 康视通 VCamera Capture, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+11:17:41 > Object: 康视通 VCamera Capture, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+11:17:41 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+11:17:41 > TBCEnumMediaTypes.Destroy
+11:17:41 > Object: 康视通 VCamera Capture, msg: Connection succeeded.
+11:17:41 > TBCEnumMediaTypes.Create
+11:17:41 > TBCEnumMediaTypes.Destroy
+11:17:41 > TBCEnumMediaTypes.Create
+11:17:41 > TBCEnumMediaTypes.Destroy
+11:17:41 > Object: 康视通 VCamera Capture, msg: Trying to connect Pins :.
+11:17:41 > Object: 康视通 VCamera Capture, msg:     <Output>.
+11:17:41 > Object: 康视通 VCamera Capture, msg:     <Input>.
+11:17:41 > TBCEnumMediaTypes.Create
+11:17:41 > Object: 康视通 VCamera Capture, msg: Trying media type:.
+11:17:41 > Object: 康视通 VCamera Capture, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+11:17:41 > Object: 康视通 VCamera Capture, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+11:17:41 > Object: 康视通 VCamera Capture, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+11:17:41 > [TKSTVCameraCapturePin: 康视通 VCamera Capture] CREATE
+11:17:41 > TBCEnumMediaTypes.Destroy
+11:17:41 > Object: 康视通 VCamera Capture, msg: Connection succeeded.
+11:17:41 > TBCEnumMediaTypes.Create
+11:17:41 > TBCEnumMediaTypes.Destroy
+11:17:41 > TBCEnumMediaTypes.Create
+11:17:41 > TBCEnumMediaTypes.Destroy
+11:17:41 > Object: 康视通 VCamera Capture, msg: Worker thread initializing.
+11:17:41 > Object: 康视通 VCamera Capture, msg: Worker thread initializing.
+11:17:47 > Deliver() returned 80040227; stopping
+11:17:47 > Object: 康视通 VCamera Capture, msg: worker thread exiting.
+11:17:47 > Object: 康视通 VCamera Capture, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 4.
+16:07:50 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:07:50 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:07:51 > TBCEnumMediaTypes.Create
+16:07:51 > TBCEnumMediaTypes.Destroy
+16:07:51 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+16:07:51 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+16:07:53 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:07:53 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:07:54 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:07:54 > Object: Kst VCamera, msg:     <Output>.
+16:07:54 > Object: Kst VCamera, msg:     <Input>.
+16:07:54 > TBCEnumMediaTypes.Create
+16:07:54 > Object: Kst VCamera, msg: Trying media type:.
+16:07:54 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:07:54 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:07:54 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+16:07:54 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:07:54 > TBCEnumMediaTypes.Destroy
+16:07:54 > Object: Kst VCamera, msg: Connection succeeded.
+16:07:54 > TBCEnumMediaTypes.Create
+16:07:54 > TBCEnumMediaTypes.Destroy
+16:07:54 > TBCEnumMediaTypes.Create
+16:07:54 > TBCEnumMediaTypes.Destroy
+16:07:54 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:07:54 > Object: Kst VCamera, msg:     <Output>.
+16:07:54 > Object: Kst VCamera, msg:     <Input>.
+16:07:54 > TBCEnumMediaTypes.Create
+16:07:54 > Object: Kst VCamera, msg: Trying media type:.
+16:07:54 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:07:54 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:07:54 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+16:07:54 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:09:07 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:09:07 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:09:07 > TBCEnumMediaTypes.Create
+16:09:07 > TBCEnumMediaTypes.Destroy
+16:09:07 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+16:09:07 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+16:09:09 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:09:09 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:09:10 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:09:10 > Object: Kst VCamera, msg:     <Output>.
+16:09:10 > Object: Kst VCamera, msg:     <Input>.
+16:09:10 > TBCEnumMediaTypes.Create
+16:09:10 > Object: Kst VCamera, msg: Trying media type:.
+16:09:10 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:09:10 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:09:10 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+16:09:10 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:09:10 > TBCEnumMediaTypes.Destroy
+16:09:10 > Object: Kst VCamera, msg: Connection succeeded.
+16:09:10 > TBCEnumMediaTypes.Create
+16:09:10 > TBCEnumMediaTypes.Destroy
+16:09:10 > TBCEnumMediaTypes.Create
+16:09:10 > TBCEnumMediaTypes.Destroy
+16:09:10 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:09:10 > Object: Kst VCamera, msg:     <Output>.
+16:09:10 > Object: Kst VCamera, msg:     <Input>.
+16:09:10 > TBCEnumMediaTypes.Create
+16:09:10 > Object: Kst VCamera, msg: Trying media type:.
+16:09:10 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:09:10 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:09:10 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+16:09:10 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:09:10 > TBCEnumMediaTypes.Destroy
+16:09:10 > Object: Kst VCamera, msg: Connection succeeded.
+16:09:10 > TBCEnumMediaTypes.Create
+16:09:10 > TBCEnumMediaTypes.Destroy
+16:09:10 > TBCEnumMediaTypes.Create
+16:09:10 > TBCEnumMediaTypes.Destroy
+16:09:10 > Object: Kst VCamera, msg: Worker thread initializing.
+16:09:10 > Object: Kst VCamera, msg: Worker thread initializing.
+16:09:20 > Deliver() returned 80040227; stopping
+16:09:20 > Object: Kst VCamera, msg: worker thread exiting.
+16:09:20 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 4.
+16:10:46 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:10:46 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:10:47 > TBCEnumMediaTypes.Create
+16:10:47 > TBCEnumMediaTypes.Destroy
+16:10:47 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+16:10:47 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+16:10:49 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:10:49 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:10:50 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:10:50 > Object: Kst VCamera, msg:     <Output>.
+16:10:50 > Object: Kst VCamera, msg:     <Input>.
+16:10:50 > TBCEnumMediaTypes.Create
+16:10:50 > Object: Kst VCamera, msg: Trying media type:.
+16:10:50 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:10:50 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:10:50 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+16:10:50 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:10:50 > TBCEnumMediaTypes.Destroy
+16:10:50 > Object: Kst VCamera, msg: Connection succeeded.
+16:10:50 > TBCEnumMediaTypes.Create
+16:10:50 > TBCEnumMediaTypes.Destroy
+16:10:50 > TBCEnumMediaTypes.Create
+16:10:50 > TBCEnumMediaTypes.Destroy
+16:10:50 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:10:50 > Object: Kst VCamera, msg:     <Output>.
+16:10:50 > Object: Kst VCamera, msg:     <Input>.
+16:10:50 > TBCEnumMediaTypes.Create
+16:10:50 > Object: Kst VCamera, msg: Trying media type:.
+16:10:50 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:10:50 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:10:50 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+16:10:50 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:10:51 > TBCEnumMediaTypes.Destroy
+16:10:51 > Object: Kst VCamera, msg: Connection succeeded.
+16:10:51 > TBCEnumMediaTypes.Create
+16:10:51 > TBCEnumMediaTypes.Destroy
+16:10:51 > TBCEnumMediaTypes.Create
+16:10:51 > TBCEnumMediaTypes.Destroy
+16:10:51 > Object: Kst VCamera, msg: Worker thread initializing.
+16:10:51 > Object: Kst VCamera, msg: Worker thread initializing.
+16:10:53 > Deliver() returned        1; stopping
+16:10:54 > Object: Kst VCamera, msg: worker thread exiting.
+16:10:54 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 4.
+16:54:14 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:54:14 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:54:14 > TBCEnumMediaTypes.Create
+16:54:14 > TBCEnumMediaTypes.Destroy
+16:54:15 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+16:54:15 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+16:54:20 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:54:20 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:54:21 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:54:21 > Object: Kst VCamera, msg:     <Output>.
+16:54:21 > Object: Kst VCamera, msg:     <Input>.
+16:54:21 > TBCEnumMediaTypes.Create
+16:54:21 > Object: Kst VCamera, msg: Trying media type:.
+16:54:21 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:54:21 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:54:21 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:54:21 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:54:21 > TBCEnumMediaTypes.Destroy
+16:54:21 > Object: Kst VCamera, msg: Connection succeeded.
+16:54:21 > TBCEnumMediaTypes.Create
+16:54:21 > TBCEnumMediaTypes.Destroy
+16:54:21 > TBCEnumMediaTypes.Create
+16:54:21 > TBCEnumMediaTypes.Destroy
+16:54:21 > TBCEnumMediaTypes.Create
+16:54:21 > TBCEnumMediaTypes.Destroy
+16:54:21 > TBCEnumMediaTypes.Create
+16:54:21 > TBCEnumMediaTypes.Destroy
+16:54:21 > TBCEnumMediaTypes.Create
+16:54:21 > TBCEnumMediaTypes.Destroy
+16:54:21 > TBCEnumMediaTypes.Create
+16:54:21 > TBCEnumMediaTypes.Destroy
+16:54:21 > TBCEnumMediaTypes.Create
+16:54:21 > TBCEnumMediaTypes.Destroy
+16:54:21 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:54:21 > Object: Kst VCamera, msg:     <Output>.
+16:54:21 > Object: Kst VCamera, msg:     <Input>.
+16:54:21 > TBCEnumMediaTypes.Create
+16:54:21 > Object: Kst VCamera, msg: Trying media type:.
+16:54:21 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:54:21 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:54:21 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:54:21 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:54:22 > TBCEnumMediaTypes.Destroy
+16:54:22 > Object: Kst VCamera, msg: Connection succeeded.
+16:54:22 > TBCEnumMediaTypes.Create
+16:54:22 > TBCEnumMediaTypes.Destroy
+16:54:22 > TBCEnumMediaTypes.Create
+16:54:22 > TBCEnumMediaTypes.Destroy
+16:54:22 > TBCEnumMediaTypes.Create
+16:54:22 > TBCEnumMediaTypes.Destroy
+16:54:22 > TBCEnumMediaTypes.Create
+16:54:22 > TBCEnumMediaTypes.Destroy
+16:54:22 > TBCEnumMediaTypes.Create
+16:54:22 > TBCEnumMediaTypes.Destroy
+16:54:22 > TBCEnumMediaTypes.Create
+16:54:22 > TBCEnumMediaTypes.Destroy
+16:54:22 > TBCEnumMediaTypes.Create
+16:54:22 > TBCEnumMediaTypes.Destroy
+16:54:22 > Object: Kst VCamera, msg: Worker thread initializing.
+16:54:22 > Object: Kst VCamera, msg: Worker thread initializing.
+16:54:31 > Deliver() returned        1; stopping
+16:54:31 > Object: Kst VCamera, msg: worker thread exiting.
+16:54:31 > Object: Kst VCamera, msg: worker thread exiting.
+16:54:34 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:54:34 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:54:35 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:54:35 > Object: Kst VCamera, msg:     <Output>.
+16:54:35 > Object: Kst VCamera, msg:     <Input>.
+16:54:35 > TBCEnumMediaTypes.Create
+16:54:35 > Object: Kst VCamera, msg: Trying media type:.
+16:54:35 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:54:35 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:54:35 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:54:35 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:54:36 > TBCEnumMediaTypes.Destroy
+16:54:36 > Object: Kst VCamera, msg: Connection succeeded.
+16:54:36 > TBCEnumMediaTypes.Create
+16:54:36 > TBCEnumMediaTypes.Destroy
+16:54:36 > TBCEnumMediaTypes.Create
+16:54:36 > TBCEnumMediaTypes.Destroy
+16:54:36 > TBCEnumMediaTypes.Create
+16:54:36 > TBCEnumMediaTypes.Destroy
+16:54:36 > TBCEnumMediaTypes.Create
+16:54:36 > TBCEnumMediaTypes.Destroy
+16:54:36 > TBCEnumMediaTypes.Create
+16:54:36 > TBCEnumMediaTypes.Destroy
+16:54:36 > TBCEnumMediaTypes.Create
+16:54:36 > TBCEnumMediaTypes.Destroy
+16:54:36 > TBCEnumMediaTypes.Create
+16:54:36 > TBCEnumMediaTypes.Destroy
+16:54:36 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:54:36 > Object: Kst VCamera, msg:     <Output>.
+16:54:36 > Object: Kst VCamera, msg:     <Input>.
+16:54:36 > TBCEnumMediaTypes.Create
+16:54:36 > Object: Kst VCamera, msg: Trying media type:.
+16:54:36 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:54:36 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:54:36 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:54:36 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:54:37 > TBCEnumMediaTypes.Destroy
+16:54:37 > Object: Kst VCamera, msg: Connection succeeded.
+16:54:37 > TBCEnumMediaTypes.Create
+16:54:37 > TBCEnumMediaTypes.Destroy
+16:54:37 > TBCEnumMediaTypes.Create
+16:54:37 > TBCEnumMediaTypes.Destroy
+16:54:37 > TBCEnumMediaTypes.Create
+16:54:37 > TBCEnumMediaTypes.Destroy
+16:54:37 > TBCEnumMediaTypes.Create
+16:54:37 > TBCEnumMediaTypes.Destroy
+16:54:37 > TBCEnumMediaTypes.Create
+16:54:37 > TBCEnumMediaTypes.Destroy
+16:54:37 > TBCEnumMediaTypes.Create
+16:54:37 > TBCEnumMediaTypes.Destroy
+16:54:37 > TBCEnumMediaTypes.Create
+16:54:37 > TBCEnumMediaTypes.Destroy
+16:54:38 > Object: Kst VCamera, msg: Worker thread initializing.
+16:54:38 > Object: Kst VCamera, msg: Worker thread initializing.
+16:54:44 > Deliver() returned        1; stopping
+16:54:44 > Object: Kst VCamera, msg: worker thread exiting.
+16:54:44 > Object: Kst VCamera, msg: worker thread exiting.
+16:54:48 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:54:48 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:54:49 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:54:49 > Object: Kst VCamera, msg:     <Output>.
+16:54:49 > Object: Kst VCamera, msg:     <Input>.
+16:54:49 > TBCEnumMediaTypes.Create
+16:54:49 > Object: Kst VCamera, msg: Trying media type:.
+16:54:49 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:54:49 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:54:49 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:54:49 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:54:50 > TBCEnumMediaTypes.Destroy
+16:54:50 > Object: Kst VCamera, msg: Connection succeeded.
+16:54:50 > TBCEnumMediaTypes.Create
+16:54:50 > TBCEnumMediaTypes.Destroy
+16:54:50 > TBCEnumMediaTypes.Create
+16:54:50 > TBCEnumMediaTypes.Destroy
+16:54:50 > TBCEnumMediaTypes.Create
+16:54:50 > TBCEnumMediaTypes.Destroy
+16:54:50 > TBCEnumMediaTypes.Create
+16:54:50 > TBCEnumMediaTypes.Destroy
+16:54:50 > TBCEnumMediaTypes.Create
+16:54:50 > TBCEnumMediaTypes.Destroy
+16:54:50 > TBCEnumMediaTypes.Create
+16:54:50 > TBCEnumMediaTypes.Destroy
+16:54:50 > TBCEnumMediaTypes.Create
+16:54:50 > TBCEnumMediaTypes.Destroy
+16:54:50 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:54:50 > Object: Kst VCamera, msg:     <Output>.
+16:54:50 > Object: Kst VCamera, msg:     <Input>.
+16:54:50 > TBCEnumMediaTypes.Create
+16:54:50 > Object: Kst VCamera, msg: Trying media type:.
+16:54:50 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:54:50 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:54:50 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:54:50 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:54:52 > TBCEnumMediaTypes.Destroy
+16:54:52 > Object: Kst VCamera, msg: Connection succeeded.
+16:54:52 > TBCEnumMediaTypes.Create
+16:54:52 > TBCEnumMediaTypes.Destroy
+16:54:52 > TBCEnumMediaTypes.Create
+16:54:52 > TBCEnumMediaTypes.Destroy
+16:54:52 > TBCEnumMediaTypes.Create
+16:54:52 > TBCEnumMediaTypes.Destroy
+16:54:52 > TBCEnumMediaTypes.Create
+16:54:52 > TBCEnumMediaTypes.Destroy
+16:54:52 > TBCEnumMediaTypes.Create
+16:54:52 > TBCEnumMediaTypes.Destroy
+16:54:52 > TBCEnumMediaTypes.Create
+16:54:52 > TBCEnumMediaTypes.Destroy
+16:54:52 > TBCEnumMediaTypes.Create
+16:54:52 > TBCEnumMediaTypes.Destroy
+16:54:52 > Object: Kst VCamera, msg: Worker thread initializing.
+16:54:52 > Object: Kst VCamera, msg: Worker thread initializing.
+16:55:00 > Deliver() returned        1; stopping
+16:55:00 > Object: Kst VCamera, msg: worker thread exiting.
+16:55:00 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 12.
+16:55:25 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:55:25 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:25 > TBCEnumMediaTypes.Create
+16:55:25 > TBCEnumMediaTypes.Destroy
+16:55:25 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+16:55:25 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+16:55:29 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:55:29 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:29 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:55:29 > Object: Kst VCamera, msg:     <Output>.
+16:55:29 > Object: Kst VCamera, msg:     <Input>.
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > Object: Kst VCamera, msg: Trying media type:.
+16:55:29 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:55:29 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:55:29 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:55:29 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > Object: Kst VCamera, msg: Connection succeeded.
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:55:29 > Object: Kst VCamera, msg:     <Output>.
+16:55:29 > Object: Kst VCamera, msg:     <Input>.
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > Object: Kst VCamera, msg: Trying media type:.
+16:55:29 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:55:29 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:55:29 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:55:29 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > Object: Kst VCamera, msg: Connection succeeded.
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > TBCEnumMediaTypes.Create
+16:55:29 > TBCEnumMediaTypes.Destroy
+16:55:29 > Object: Kst VCamera, msg: Worker thread initializing.
+16:55:29 > Object: Kst VCamera, msg: Worker thread initializing.
+16:55:31 > Deliver() returned 80040227; stopping
+16:55:31 > Object: Kst VCamera, msg: worker thread exiting.
+16:55:31 > Object: Kst VCamera, msg: worker thread exiting.
+16:55:33 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:55:33 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:34 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:55:34 > Object: Kst VCamera, msg:     <Output>.
+16:55:34 > Object: Kst VCamera, msg:     <Input>.
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > Object: Kst VCamera, msg: Trying media type:.
+16:55:34 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:55:34 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:55:34 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:55:34 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > Object: Kst VCamera, msg: Connection succeeded.
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:55:34 > Object: Kst VCamera, msg:     <Output>.
+16:55:34 > Object: Kst VCamera, msg:     <Input>.
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > Object: Kst VCamera, msg: Trying media type:.
+16:55:34 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:55:34 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:55:34 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:55:34 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > Object: Kst VCamera, msg: Connection succeeded.
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > TBCEnumMediaTypes.Create
+16:55:34 > TBCEnumMediaTypes.Destroy
+16:55:34 > Object: Kst VCamera, msg: Worker thread initializing.
+16:55:34 > Object: Kst VCamera, msg: Worker thread initializing.
+16:55:42 > Deliver() returned 80040227; stopping
+16:55:42 > Object: Kst VCamera, msg: worker thread exiting.
+16:55:42 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 8.
+16:55:50 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:55:50 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:51 > TBCEnumMediaTypes.Create
+16:55:51 > TBCEnumMediaTypes.Destroy
+16:55:51 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+16:55:51 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+16:55:53 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:55:53 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:54 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:55:54 > Object: Kst VCamera, msg:     <Output>.
+16:55:54 > Object: Kst VCamera, msg:     <Input>.
+16:55:54 > TBCEnumMediaTypes.Create
+16:55:54 > Object: Kst VCamera, msg: Trying media type:.
+16:55:54 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:55:54 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:55:54 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:55:54 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > Object: Kst VCamera, msg: Connection succeeded.
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:55:55 > Object: Kst VCamera, msg:     <Output>.
+16:55:55 > Object: Kst VCamera, msg:     <Input>.
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > Object: Kst VCamera, msg: Trying media type:.
+16:55:55 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:55:55 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:55:55 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:55:55 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > Object: Kst VCamera, msg: Connection succeeded.
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:55 > TBCEnumMediaTypes.Create
+16:55:55 > TBCEnumMediaTypes.Destroy
+16:55:56 > Object: Kst VCamera, msg: Worker thread initializing.
+16:55:56 > Object: Kst VCamera, msg: Worker thread initializing.
+16:56:03 > Deliver() returned        1; stopping
+16:56:03 > Object: Kst VCamera, msg: worker thread exiting.
+16:56:04 > Object: Kst VCamera, msg: worker thread exiting.
+16:56:06 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:56:06 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:56:08 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:56:08 > Object: Kst VCamera, msg:     <Output>.
+16:56:08 > Object: Kst VCamera, msg:     <Input>.
+16:56:08 > TBCEnumMediaTypes.Create
+16:56:08 > Object: Kst VCamera, msg: Trying media type:.
+16:56:08 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:56:08 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:56:08 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:56:08 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:56:08 > TBCEnumMediaTypes.Destroy
+16:56:08 > Object: Kst VCamera, msg: Connection succeeded.
+16:56:08 > TBCEnumMediaTypes.Create
+16:56:08 > TBCEnumMediaTypes.Destroy
+16:56:08 > TBCEnumMediaTypes.Create
+16:56:08 > TBCEnumMediaTypes.Destroy
+16:56:08 > TBCEnumMediaTypes.Create
+16:56:08 > TBCEnumMediaTypes.Destroy
+16:56:08 > TBCEnumMediaTypes.Create
+16:56:08 > TBCEnumMediaTypes.Destroy
+16:56:08 > TBCEnumMediaTypes.Create
+16:56:08 > TBCEnumMediaTypes.Destroy
+16:56:08 > TBCEnumMediaTypes.Create
+16:56:08 > TBCEnumMediaTypes.Destroy
+16:56:08 > TBCEnumMediaTypes.Create
+16:56:08 > TBCEnumMediaTypes.Destroy
+16:56:08 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:56:08 > Object: Kst VCamera, msg:     <Output>.
+16:56:08 > Object: Kst VCamera, msg:     <Input>.
+16:56:08 > TBCEnumMediaTypes.Create
+16:56:08 > Object: Kst VCamera, msg: Trying media type:.
+16:56:08 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:56:08 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:56:08 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 320X240, 32 bits.
+16:56:08 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:56:09 > TBCEnumMediaTypes.Destroy
+16:56:09 > Object: Kst VCamera, msg: Connection succeeded.
+16:56:09 > TBCEnumMediaTypes.Create
+16:56:09 > TBCEnumMediaTypes.Destroy
+16:56:09 > TBCEnumMediaTypes.Create
+16:56:09 > TBCEnumMediaTypes.Destroy
+16:56:09 > TBCEnumMediaTypes.Create
+16:56:09 > TBCEnumMediaTypes.Destroy
+16:56:09 > TBCEnumMediaTypes.Create
+16:56:09 > TBCEnumMediaTypes.Destroy
+16:56:09 > TBCEnumMediaTypes.Create
+16:56:09 > TBCEnumMediaTypes.Destroy
+16:56:09 > TBCEnumMediaTypes.Create
+16:56:09 > TBCEnumMediaTypes.Destroy
+16:56:09 > TBCEnumMediaTypes.Create
+16:56:09 > TBCEnumMediaTypes.Destroy
+16:56:10 > Object: Kst VCamera, msg: Worker thread initializing.
+16:56:10 > Object: Kst VCamera, msg: Worker thread initializing.
+16:56:18 > Deliver() returned        1; stopping
+16:56:18 > Object: Kst VCamera, msg: worker thread exiting.
+16:56:18 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 8.
+16:58:59 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:58:59 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:59:00 > TBCEnumMediaTypes.Create
+16:59:00 > TBCEnumMediaTypes.Destroy
+16:59:00 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+16:59:00 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+16:59:03 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+16:59:03 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:59:04 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:59:04 > Object: Kst VCamera, msg:     <Output>.
+16:59:04 > Object: Kst VCamera, msg:     <Input>.
+16:59:04 > TBCEnumMediaTypes.Create
+16:59:04 > Object: Kst VCamera, msg: Trying media type:.
+16:59:04 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:59:04 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:59:04 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+16:59:04 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:59:04 > TBCEnumMediaTypes.Destroy
+16:59:04 > Object: Kst VCamera, msg: Connection succeeded.
+16:59:04 > TBCEnumMediaTypes.Create
+16:59:04 > TBCEnumMediaTypes.Destroy
+16:59:04 > TBCEnumMediaTypes.Create
+16:59:04 > TBCEnumMediaTypes.Destroy
+16:59:04 > Object: Kst VCamera, msg: Trying to connect Pins :.
+16:59:04 > Object: Kst VCamera, msg:     <Output>.
+16:59:04 > Object: Kst VCamera, msg:     <Input>.
+16:59:04 > TBCEnumMediaTypes.Create
+16:59:04 > Object: Kst VCamera, msg: Trying media type:.
+16:59:04 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:59:04 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:59:04 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+16:59:04 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+16:59:05 > TBCEnumMediaTypes.Destroy
+16:59:05 > Object: Kst VCamera, msg: Connection succeeded.
+16:59:05 > TBCEnumMediaTypes.Create
+16:59:05 > TBCEnumMediaTypes.Destroy
+16:59:05 > TBCEnumMediaTypes.Create
+16:59:05 > TBCEnumMediaTypes.Destroy
+16:59:05 > Object: Kst VCamera, msg: Worker thread initializing.
+16:59:05 > Object: Kst VCamera, msg: Worker thread initializing.
+16:59:15 > Deliver() returned        1; stopping
+16:59:15 > Object: Kst VCamera, msg: worker thread exiting.
+16:59:15 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 4.
+06:56:07 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+06:56:07 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+06:56:07 > TBCEnumMediaTypes.Create
+06:56:07 > TBCEnumMediaTypes.Destroy
+06:56:08 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+06:56:08 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+06:56:10 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+06:56:10 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+06:56:10 > Object: Kst VCamera, msg: Trying to connect Pins :.
+06:56:10 > Object: Kst VCamera, msg:     <Output>.
+06:56:10 > Object: Kst VCamera, msg:     <Input>.
+06:56:10 > TBCEnumMediaTypes.Create
+06:56:10 > Object: Kst VCamera, msg: Trying media type:.
+06:56:10 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+06:56:10 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+06:56:10 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+06:56:10 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+06:56:11 > TBCEnumMediaTypes.Destroy
+06:56:11 > Object: Kst VCamera, msg: Connection succeeded.
+06:56:11 > TBCEnumMediaTypes.Create
+06:56:11 > TBCEnumMediaTypes.Destroy
+06:56:11 > TBCEnumMediaTypes.Create
+06:56:11 > TBCEnumMediaTypes.Destroy
+06:56:11 > Object: Kst VCamera, msg: Trying to connect Pins :.
+06:56:11 > Object: Kst VCamera, msg:     <Output>.
+06:56:11 > Object: Kst VCamera, msg:     <Input>.
+06:56:11 > TBCEnumMediaTypes.Create
+06:56:11 > Object: Kst VCamera, msg: Trying media type:.
+06:56:11 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+06:56:11 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+06:56:11 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+06:56:11 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+06:56:12 > TBCEnumMediaTypes.Destroy
+06:56:12 > Object: Kst VCamera, msg: Connection succeeded.
+06:56:12 > TBCEnumMediaTypes.Create
+06:56:12 > TBCEnumMediaTypes.Destroy
+06:56:12 > TBCEnumMediaTypes.Create
+06:56:12 > TBCEnumMediaTypes.Destroy
+06:56:12 > Object: Kst VCamera, msg: Worker thread initializing.
+06:56:12 > Object: Kst VCamera, msg: Worker thread initializing.
+06:56:14 > Deliver() returned        1; stopping
+06:56:14 > Object: Kst VCamera, msg: worker thread exiting.
+06:56:14 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 4.
+08:40:30 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+08:40:30 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:40:30 > TBCEnumMediaTypes.Create
+08:40:30 > TBCEnumMediaTypes.Destroy
+08:40:30 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+08:40:30 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+08:40:32 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+08:40:32 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:40:33 > Object: Kst VCamera, msg: Trying to connect Pins :.
+08:40:33 > Object: Kst VCamera, msg:     <Output>.
+08:40:33 > Object: Kst VCamera, msg:     <Input>.
+08:40:33 > TBCEnumMediaTypes.Create
+08:40:33 > Object: Kst VCamera, msg: Trying media type:.
+08:40:33 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+08:40:33 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+08:40:33 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+08:40:33 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:40:33 > TBCEnumMediaTypes.Destroy
+08:40:33 > Object: Kst VCamera, msg: Connection succeeded.
+08:40:33 > TBCEnumMediaTypes.Create
+08:40:33 > TBCEnumMediaTypes.Destroy
+08:40:33 > TBCEnumMediaTypes.Create
+08:40:33 > TBCEnumMediaTypes.Destroy
+08:40:34 > Object: Kst VCamera, msg: Trying to connect Pins :.
+08:40:34 > Object: Kst VCamera, msg:     <Output>.
+08:40:34 > Object: Kst VCamera, msg:     <Input>.
+08:40:34 > TBCEnumMediaTypes.Create
+08:40:34 > Object: Kst VCamera, msg: Trying media type:.
+08:40:34 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+08:40:34 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+08:40:34 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+08:40:34 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:40:34 > TBCEnumMediaTypes.Destroy
+08:40:34 > Object: Kst VCamera, msg: Connection succeeded.
+08:40:34 > TBCEnumMediaTypes.Create
+08:40:34 > TBCEnumMediaTypes.Destroy
+08:40:34 > TBCEnumMediaTypes.Create
+08:40:34 > TBCEnumMediaTypes.Destroy
+08:40:34 > Object: Kst VCamera, msg: Worker thread initializing.
+08:40:35 > Object: Kst VCamera, msg: Worker thread initializing.
+08:40:37 > Deliver() returned        1; stopping
+08:40:37 > Object: Kst VCamera, msg: worker thread exiting.
+08:40:37 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 4.
+08:41:48 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+08:41:48 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:41:48 > TBCEnumMediaTypes.Create
+08:41:48 > TBCEnumMediaTypes.Destroy
+08:41:49 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+08:41:49 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+08:41:51 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+08:41:51 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:41:52 > Object: Kst VCamera, msg: Trying to connect Pins :.
+08:41:52 > Object: Kst VCamera, msg:     <Output>.
+08:41:52 > Object: Kst VCamera, msg:     <Input>.
+08:41:52 > TBCEnumMediaTypes.Create
+08:41:52 > Object: Kst VCamera, msg: Trying media type:.
+08:41:52 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+08:41:52 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+08:41:52 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+08:41:52 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:41:52 > TBCEnumMediaTypes.Destroy
+08:41:52 > Object: Kst VCamera, msg: Connection succeeded.
+08:41:52 > TBCEnumMediaTypes.Create
+08:41:52 > TBCEnumMediaTypes.Destroy
+08:41:52 > TBCEnumMediaTypes.Create
+08:41:52 > TBCEnumMediaTypes.Destroy
+08:41:52 > Object: Kst VCamera, msg: Trying to connect Pins :.
+08:41:52 > Object: Kst VCamera, msg:     <Output>.
+08:41:52 > Object: Kst VCamera, msg:     <Input>.
+08:41:52 > TBCEnumMediaTypes.Create
+08:41:52 > Object: Kst VCamera, msg: Trying media type:.
+08:41:52 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+08:41:52 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+08:41:52 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+08:41:52 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:41:53 > TBCEnumMediaTypes.Destroy
+08:41:53 > Object: Kst VCamera, msg: Connection succeeded.
+08:41:53 > TBCEnumMediaTypes.Create
+08:41:53 > TBCEnumMediaTypes.Destroy
+08:41:53 > TBCEnumMediaTypes.Create
+08:41:53 > TBCEnumMediaTypes.Destroy
+08:41:53 > Object: Kst VCamera, msg: Worker thread initializing.
+08:41:53 > Object: Kst VCamera, msg: Worker thread initializing.
+08:41:56 > Deliver() returned        1; stopping
+08:41:56 > Object: Kst VCamera, msg: worker thread exiting.
+08:41:56 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 4.
+08:42:19 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+08:42:19 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:42:20 > TBCEnumMediaTypes.Create
+08:42:20 > TBCEnumMediaTypes.Destroy
+08:42:20 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+08:42:20 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+08:42:22 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+08:42:22 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:42:22 > Object: Kst VCamera, msg: Trying to connect Pins :.
+08:42:22 > Object: Kst VCamera, msg:     <Output>.
+08:42:22 > Object: Kst VCamera, msg:     <Input>.
+08:42:22 > TBCEnumMediaTypes.Create
+08:42:22 > Object: Kst VCamera, msg: Trying media type:.
+08:42:22 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+08:42:22 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+08:42:22 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+08:42:22 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:42:23 > TBCEnumMediaTypes.Destroy
+08:42:23 > Object: Kst VCamera, msg: Connection succeeded.
+08:42:23 > TBCEnumMediaTypes.Create
+08:42:23 > TBCEnumMediaTypes.Destroy
+08:42:23 > TBCEnumMediaTypes.Create
+08:42:23 > TBCEnumMediaTypes.Destroy
+08:42:23 > Object: Kst VCamera, msg: Trying to connect Pins :.
+08:42:23 > Object: Kst VCamera, msg:     <Output>.
+08:42:23 > Object: Kst VCamera, msg:     <Input>.
+08:42:23 > TBCEnumMediaTypes.Create
+08:42:23 > Object: Kst VCamera, msg: Trying media type:.
+08:42:23 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+08:42:23 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+08:42:23 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+08:42:23 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+08:42:24 > TBCEnumMediaTypes.Destroy
+08:42:24 > Object: Kst VCamera, msg: Connection succeeded.
+08:42:24 > TBCEnumMediaTypes.Create
+08:42:24 > TBCEnumMediaTypes.Destroy
+08:42:24 > TBCEnumMediaTypes.Create
+08:42:24 > TBCEnumMediaTypes.Destroy
+08:42:24 > Object: Kst VCamera, msg: Worker thread initializing.
+08:42:24 > Object: Kst VCamera, msg: Worker thread initializing.
+08:42:26 > Deliver() returned        1; stopping
+08:42:26 > Object: Kst VCamera, msg: worker thread exiting.
+08:42:26 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 4.
+09:41:47 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+09:41:47 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+09:41:47 > TBCEnumMediaTypes.Create
+09:41:47 > TBCEnumMediaTypes.Destroy
+09:41:47 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+09:41:47 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+09:41:50 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+09:41:50 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+09:41:50 > Object: Kst VCamera, msg: Trying to connect Pins :.
+09:41:50 > Object: Kst VCamera, msg:     <Output>.
+09:41:50 > Object: Kst VCamera, msg:     <Input>.
+09:41:50 > TBCEnumMediaTypes.Create
+09:41:50 > Object: Kst VCamera, msg: Trying media type:.
+09:41:50 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+09:41:50 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+09:41:50 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+09:41:50 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+09:41:50 > TBCEnumMediaTypes.Destroy
+09:41:50 > Object: Kst VCamera, msg: Connection succeeded.
+09:41:50 > TBCEnumMediaTypes.Create
+09:41:50 > TBCEnumMediaTypes.Destroy
+09:41:50 > TBCEnumMediaTypes.Create
+09:41:50 > TBCEnumMediaTypes.Destroy
+09:41:50 > Object: Kst VCamera, msg: Trying to connect Pins :.
+09:41:50 > Object: Kst VCamera, msg:     <Output>.
+09:41:50 > Object: Kst VCamera, msg:     <Input>.
+09:41:50 > TBCEnumMediaTypes.Create
+09:41:50 > Object: Kst VCamera, msg: Trying media type:.
+09:41:50 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+09:41:50 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+09:41:50 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+09:41:50 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+09:41:50 > TBCEnumMediaTypes.Destroy
+09:41:50 > Object: Kst VCamera, msg: Connection succeeded.
+09:41:50 > TBCEnumMediaTypes.Create
+09:41:50 > TBCEnumMediaTypes.Destroy
+09:41:50 > TBCEnumMediaTypes.Create
+09:41:50 > TBCEnumMediaTypes.Destroy
+09:41:50 > Object: Kst VCamera, msg: Worker thread initializing.
+09:41:50 > Object: Kst VCamera, msg: Worker thread initializing.
+09:41:53 > Deliver() returned        1; stopping
+09:41:53 > Object: Kst VCamera, msg: worker thread exiting.
+09:41:53 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 4.
+09:49:39 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+09:49:39 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+09:49:39 > TBCEnumMediaTypes.Create
+09:49:39 > TBCEnumMediaTypes.Destroy
+09:49:39 > [TKSTVCameraCapturePin: Kst VCamera] FREE
+09:49:39 > [TKSTVCameraCaptureFilter: Kst VCamera] FREE
+09:49:42 > [TKSTVCameraCaptureFilter: Kst VCamera] CREATE
+09:49:42 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+09:49:43 > Object: Kst VCamera, msg: Trying to connect Pins :.
+09:49:43 > Object: Kst VCamera, msg:     <Output>.
+09:49:43 > Object: Kst VCamera, msg:     <Input>.
+09:49:43 > TBCEnumMediaTypes.Create
+09:49:43 > Object: Kst VCamera, msg: Trying media type:.
+09:49:43 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+09:49:43 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+09:49:43 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+09:49:43 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+09:49:43 > TBCEnumMediaTypes.Destroy
+09:49:43 > Object: Kst VCamera, msg: Connection succeeded.
+09:49:43 > TBCEnumMediaTypes.Create
+09:49:43 > TBCEnumMediaTypes.Destroy
+09:49:43 > TBCEnumMediaTypes.Create
+09:49:43 > TBCEnumMediaTypes.Destroy
+09:49:43 > Object: Kst VCamera, msg: Trying to connect Pins :.
+09:49:43 > Object: Kst VCamera, msg:     <Output>.
+09:49:43 > Object: Kst VCamera, msg:     <Input>.
+09:49:43 > TBCEnumMediaTypes.Create
+09:49:43 > Object: Kst VCamera, msg: Trying media type:.
+09:49:43 > Object: Kst VCamera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+09:49:43 > Object: Kst VCamera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+09:49:43 > Object: Kst VCamera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB 1920X1080, 32 bits.
+09:49:43 > [TKSTVCameraCapturePin: Kst VCamera] CREATE
+09:49:43 > TBCEnumMediaTypes.Destroy
+09:49:43 > Object: Kst VCamera, msg: Connection succeeded.
+09:49:43 > TBCEnumMediaTypes.Create
+09:49:43 > TBCEnumMediaTypes.Destroy
+09:49:43 > TBCEnumMediaTypes.Create
+09:49:43 > TBCEnumMediaTypes.Destroy
+09:49:43 > Object: Kst VCamera, msg: Worker thread initializing.
+09:49:43 > Object: Kst VCamera, msg: Worker thread initializing.
+09:49:44 > Deliver() returned        1; stopping
+09:49:44 > Object: Kst VCamera, msg: worker thread exiting.
+09:49:44 > Object: Kst VCamera, msg: worker thread exiting.
+FactoryCount: 0, ObjectCount: 4.
+16:08:32 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] CREATE
+16:08:32 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] CREATE
+16:08:32 > TBCEnumMediaTypes.Create
+16:08:32 > TBCEnumMediaTypes.Destroy
+16:08:32 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] FREE
+16:08:32 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] FREE
+16:08:34 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] CREATE
+16:08:34 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] CREATE
+16:08:34 > Object: dbyoung Virtual Camera, msg: Trying to connect Pins :.
+16:08:34 > Object: dbyoung Virtual Camera, msg:     <Output>.
+16:08:34 > Object: dbyoung Virtual Camera, msg:     <Input>.
+16:08:34 > TBCEnumMediaTypes.Create
+16:08:34 > Object: dbyoung Virtual Camera, msg: Trying media type:.
+16:08:34 > Object: dbyoung Virtual Camera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:08:34 > Object: dbyoung Virtual Camera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:08:34 > Object: dbyoung Virtual Camera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB24 1920X1080, 32 bits.
+16:08:34 > TBCEnumMediaTypes.Destroy
+16:08:34 > Object: dbyoung Virtual Camera, msg: Connection succeeded.
+16:08:34 > TBCEnumMediaTypes.Create
+16:08:34 > TBCEnumMediaTypes.Destroy
+16:08:34 > TBCEnumMediaTypes.Create
+16:08:34 > TBCEnumMediaTypes.Destroy
+16:08:34 > TBCEnumMediaTypes.Create
+16:08:34 > TBCEnumMediaTypes.Destroy
+16:08:34 > TBCEnumMediaTypes.Create
+16:08:34 > TBCEnumMediaTypes.Destroy
+16:08:34 > Object: dbyoung Virtual Camera, msg: Worker thread initializing.
+16:08:41 > Object: dbyoung Virtual Camera, msg: worker thread exiting.
+16:08:41 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] FREE
+16:08:41 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] FREE
+FactoryCount: 0, ObjectCount: 0.
+16:09:28 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] CREATE
+16:09:28 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] CREATE
+16:09:28 > TBCEnumMediaTypes.Create
+16:09:28 > TBCEnumMediaTypes.Destroy
+16:09:28 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] FREE
+16:09:28 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] FREE
+16:09:30 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] CREATE
+16:09:30 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] CREATE
+16:09:31 > Object: dbyoung Virtual Camera, msg: Trying to connect Pins :.
+16:09:31 > Object: dbyoung Virtual Camera, msg:     <Output>.
+16:09:31 > Object: dbyoung Virtual Camera, msg:     <Input>.
+16:09:31 > TBCEnumMediaTypes.Create
+16:09:31 > Object: dbyoung Virtual Camera, msg: Trying media type:.
+16:09:31 > Object: dbyoung Virtual Camera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:09:31 > Object: dbyoung Virtual Camera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:09:31 > Object: dbyoung Virtual Camera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB24 1920X1080, 32 bits.
+16:09:31 > TBCEnumMediaTypes.Destroy
+16:09:31 > Object: dbyoung Virtual Camera, msg: Connection succeeded.
+16:09:31 > TBCEnumMediaTypes.Create
+16:09:31 > TBCEnumMediaTypes.Destroy
+16:09:31 > TBCEnumMediaTypes.Create
+16:09:31 > TBCEnumMediaTypes.Destroy
+16:09:31 > TBCEnumMediaTypes.Create
+16:09:31 > TBCEnumMediaTypes.Destroy
+16:09:31 > TBCEnumMediaTypes.Create
+16:09:31 > TBCEnumMediaTypes.Destroy
+16:09:31 > Object: dbyoung Virtual Camera, msg: Worker thread initializing.
+16:09:35 > Object: dbyoung Virtual Camera, msg: worker thread exiting.
+16:09:35 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] FREE
+16:09:46 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] CREATE
+16:09:46 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] CREATE
+16:09:46 > TBCEnumMediaTypes.Create
+16:09:46 > TBCEnumMediaTypes.Destroy
+16:09:46 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] FREE
+16:09:46 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] FREE
+16:09:48 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] CREATE
+16:09:48 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] CREATE
+16:09:48 > Object: dbyoung Virtual Camera, msg: Trying to connect Pins :.
+16:09:48 > Object: dbyoung Virtual Camera, msg:     <Output>.
+16:09:48 > Object: dbyoung Virtual Camera, msg:     <Input>.
+16:09:48 > TBCEnumMediaTypes.Create
+16:09:48 > Object: dbyoung Virtual Camera, msg: Trying media type:.
+16:09:48 > Object: dbyoung Virtual Camera, msg:     major type:  {73646976-0000-0010-8000-00AA00389B71}.
+16:09:48 > Object: dbyoung Virtual Camera, msg:     sub type  :  {E436EB7E-524F-11CE-9F53-0020AF0BA770}.
+16:09:48 > Object: dbyoung Virtual Camera, msg: Major Type: Video - Sub Type: RGB32 Format: VideoInfo RGB24 1920X1080, 32 bits.
+16:09:48 > TBCEnumMediaTypes.Destroy
+16:09:48 > Object: dbyoung Virtual Camera, msg: Connection succeeded.
+16:09:48 > TBCEnumMediaTypes.Create
+16:09:48 > TBCEnumMediaTypes.Destroy
+16:09:48 > TBCEnumMediaTypes.Create
+16:09:48 > TBCEnumMediaTypes.Destroy
+16:09:48 > TBCEnumMediaTypes.Create
+16:09:48 > TBCEnumMediaTypes.Destroy
+16:09:48 > TBCEnumMediaTypes.Create
+16:09:48 > TBCEnumMediaTypes.Destroy
+16:09:48 > Object: dbyoung Virtual Camera, msg: Worker thread initializing.
+16:09:54 > Object: dbyoung Virtual Camera, msg: worker thread exiting.
+16:09:54 > [TKSTVCameraCapturePin: dbyoung Virtual Camera] FREE
+16:09:54 > [TKSTVCameraCaptureFilter: dbyoung Virtual Camera] FREE
+FactoryCount: 0, ObjectCount: 0.
