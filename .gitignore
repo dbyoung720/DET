@@ -48,3 +48,5 @@ __recovery
 /bin/Win64/Release/plugins/plist.ini
 /src/Vcl.ComCtrls.pas
 /plugins/delphi/vds/Winapi.GDIPOBJ.pas
+/bin/Win32/Release/.work
+/bin/Win64/Release/.work
