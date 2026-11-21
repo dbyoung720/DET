@@ -130,9 +130,12 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="TurboJpeg\src\TurboJpeg.Bitmap.pas"/>
+        <DCCReference Include="TurboJpeg\src\TurboJpeg.CRT.pas"/>
+        <DCCReference Include="TurboJpeg\src\TurboJpeg.Force.pas"/>
+        <DCCReference Include="TurboJpeg\src\TurboJpeg.Static.pas"/>
         <DCCReference Include="uMain.pas">
             <Form>frmPicView</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <RcItem Include="PicView.ico">
             <ResourceType>ICON</ResourceType>

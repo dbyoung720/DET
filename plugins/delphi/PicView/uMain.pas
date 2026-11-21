@@ -1050,7 +1050,7 @@ end;
 
 procedure TfrmPicView.LoadSettings;
 begin
-  FIniFile := ChangeFileExt(Application.ExeName, '.ini');
+  FIniFile := ExtractFilePath(ParamStr(0)) + 'config.ini';
   var Ini := TIniFile.Create(FIniFile);
   try
     FFolder := Ini.ReadString('General', 'LastFolder', TPath.GetPicturesPath);

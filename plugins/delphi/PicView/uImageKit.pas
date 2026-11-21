@@ -8,7 +8,8 @@ unit uImageKit;
 
 interface
 
-uses Winapi.Windows, Winapi.ShellAPI, System.SysUtils, System.Classes, System.Math, System.Types, System.Threading, Vcl.Graphics, Vcl.Imaging.jpeg, Vcl.Imaging.pngimage, Vcl.Imaging.QOI;
+uses Winapi.Windows, Winapi.ShellAPI, System.SysUtils, System.Classes, System.Math, System.Types, System.Threading, System.IOUtils,
+     Vcl.Graphics, Vcl.Imaging.jpeg, Vcl.Imaging.pngimage, Vcl.Imaging.QOI, TurboJpeg.Static, TurboJpeg.Bitmap;
 
 const
   { 缩略图底色 / 查看器底色: 深色主题的基调 }
@@ -143,8 +144,24 @@ begin
   end;
 end;
 
+function LoadJpegFileWithTurboJpegDec(const AFileName : string; out ABitmap : TBitmap) : Boolean;
+begin
+  Result := True;
+  var Data := TFile.ReadAllBytes(AFileName);
+  try
+    TjDecodeToBitmap(Data, ABitmap);
+  except
+    Result := False;
+  end;
+end;
+
 procedure LoadImageFile(const AFileName: string; out ABitmap: TBitmap; out AWic: TWICImage);
 begin
+  if SameText(ExtractFileExt(AFileName), '.jpg') then
+  begin
+   if LoadJpegFileWithTurboJpegDec(AFileName, ABitmap) then Exit;
+  end;
+
   ABitmap := nil;
   AWic    := nil;
   try

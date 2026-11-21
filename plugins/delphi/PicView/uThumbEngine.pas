@@ -4,7 +4,8 @@ unit uThumbEngine;
 
 interface
 
-uses Winapi.Windows, Winapi.ActiveX, System.SysUtils, System.Classes, System.SyncObjs, System.IOUtils, System.DateUtils, System.Generics.Collections, System.Math, Vcl.Graphics, uImageKit;
+uses Winapi.Windows, Winapi.ActiveX, System.SysUtils, System.Classes, System.SyncObjs, System.IOUtils, System.DateUtils, System.Generics.Collections, System.Math,
+     Vcl.Graphics, uImageKit;
 
 type
   TThumbRequest = record
@@ -255,15 +256,15 @@ procedure DrawFrame(var P: TBytes; ASize: Integer);
     P[O] := $64; P[O + 1] := $64; P[O + 2] := $64; P[O + 3] := 255;
   end;
 
-var X, Y: Integer;
 begin
   if ASize < 20 then Exit;
-  for X := 6 to ASize - 7 do
+
+  for var X := 6 to ASize - 7 do
   begin
     Put(X, 6);
     Put(X, ASize - 7);
   end;
-  for Y := 6 to ASize - 7 do
+  for var Y := 6 to ASize - 7 do
   begin
     Put(6, Y);
     Put(ASize - 7, Y);
@@ -301,6 +302,7 @@ begin
   Result := (E = '.qoi');
 end;
 
+
 { 用 GDI+ 缩略图技术生成 ASize x ASize 的 32bpp BGRA 像素。
   GdipGetImageThumbnail 对带内嵌缩略图的 JPEG 可直接取缩略图, 无需全图解码; 其余格式由 GDI+ 内部快速缩放, 再用双三次插值绘制到灰底画布上
 }
@@ -315,6 +317,7 @@ var
 begin
   SetLength(Result, 0);
   if (ASize < 16) or (AFileName = '') then Exit;
+
   if NeedsVclDecode(AFileName) then
   begin
     Result := WicThumbPixels(AFileName, ASize);
@@ -352,10 +355,9 @@ begin
       if K > 1 then K := 1;
       TW := Max(1, Round(SW * K));
       TH := Max(1, Round(SH * K));
-      if (GGetThumbnail(Src, TW, TH, Thumb, nil, nil) = GDIP_OK) and
-         (Thumb <> nil) then
+      if (GGetThumbnail(Src, TW, TH, Thumb, nil, nil) = GDIP_OK) and (Thumb <> nil) then
       begin
-        DrawSrc := Thumb;
+        DrawSrc  := Thumb;
         OwnThumb := True;
       end
       else
@@ -648,8 +650,7 @@ const
   WORKER_MIN = 2;
   WORKER_MAX = 4;
 
-{ 线程数按核数取, 但不拉满: 解码是 CPU + 磁盘混合负载, 线程太多会
-  抢主线程的 CPU 和磁盘带宽, 反而拖慢滚动。 }
+{ 线程数按核数取, 但不拉满: 解码是 CPU + 磁盘混合负载, 线程太多会抢主线程的 CPU 和磁盘带宽, 反而拖慢滚动 }
 function TThumbEngine.GetWorkerCount: Integer;
 begin
   Result := System.Math.Max(WORKER_MIN, System.Math.Min(WORKER_MAX, TThread.ProcessorCount div 3));
@@ -663,9 +664,7 @@ begin
     if FStopping then Exit;
     if FRequests.Count > 0 then
     begin
-      { 先进先出: 界面按可见区从上到下提交, 顺序取任务才能让屏幕
-        上方先出图。滚动时旧队列由 ClearRequests 整体丢掉, 不需要
-        靠后进先出追新, 也不会去解刚滚走的内容。 }
+      { 先进先出: 界面按可见区从上到下提交, 顺序取任务才能让屏幕上方先出图。滚动时旧队列由 ClearRequests 整体丢掉, 不需要靠后进先出追新, 也不会去解刚滚走的内容 }
       AJob := FRequests[0];
       FRequests.Delete(0);
       Result := AJob.Gen = FGen;
@@ -717,17 +716,16 @@ begin
   FLock := TCriticalSection.Create;
   { 手工重置事件: 多个工作线程一起等, 一次提交要能把它们全部唤醒。 }
   FWake := TEvent.Create(nil, True, False, '');
-  FRequests := TList<TThumbRequest>.Create;
-  FResults := TList<TThumbResult>.Create;
-  FCache := TThumbCache.Create;
-  FGen := 0;
-  FStopping := False;
+  FRequests  := TList<TThumbRequest>.Create;
+  FResults   := TList<TThumbResult>.Create;
+  FCache     := TThumbCache.Create;
+  FGen       := 0;
+  FStopping  := False;
   FCacheHits := 0;
   InitGdiPlus;
   N := GetWorkerCount;
   SetLength(FWorkers, N);
-  for I := 0 to N - 1 do
-    FWorkers[I] := TThumbWorker.Create(Self);
+  for I := 0 to N - 1 do FWorkers[I] := TThumbWorker.Create(Self);
 end;
 
 destructor TThumbEngine.Destroy;
@@ -771,7 +769,6 @@ begin
   finally
     FLock.Leave;
   end;
-  { 这里不清像素缓存: 换目录、换尺寸后再回到看过的内容, 要能立刻出图。 }
 end;
 
 procedure TThumbEngine.ClearRequests;

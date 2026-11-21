@@ -22,31 +22,31 @@ object frmPicView: TfrmPicView
     Left = 0
     Top = 0
     Width = 1280
-    Height = 25
+    Height = 26
     UseSystemFont = False
     ActionManager = ActionManager1
     Caption = 'MenuMain'
-    Color = clMenuBar
-    ColorMap.DisabledFontColor = 7171437
-    ColorMap.HighlightColor = clWhite
-    ColorMap.BtnSelectedFont = clBlack
+    ColorMap.HighlightColor = clBtnHighlight
     ColorMap.UnusedColor = clWhite
+    ColorMap.MenuColor = clMenu
     Font.Charset = GB2312_CHARSET
-    Font.Color = clBlack
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = #23435#20307
     Font.Style = []
     ParentBiDiMode = False
     Spacing = 0
+    ExplicitHeight = 25
   end
   object PanelToolBarHost: TPanel
     Left = 0
-    Top = 25
+    Top = 26
     Width = 1280
     Height = 34
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitTop = 25
     object ToolBarBrowse: TToolBar
       Left = 0
       Top = 0
@@ -278,12 +278,13 @@ object frmPicView: TfrmPicView
   end
   object PanelTabs: TPanel
     Left = 0
-    Top = 59
+    Top = 60
     Width = 1280
     Height = 36
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitTop = 59
     object PageControl1: TPageControl
       Left = 0
       Top = 0
@@ -300,12 +301,14 @@ object frmPicView: TfrmPicView
   end
   object PanelAddress: TPanel
     Left = 0
-    Top = 95
+    Top = 96
     Width = 1280
     Height = 24
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
+    ExplicitTop = 95
+    ExplicitWidth = 624
     object btnGo: TButton
       Left = 1184
       Top = 0
@@ -339,21 +342,24 @@ object frmPicView: TfrmPicView
       ParentFont = False
       TabOrder = 2
       OnKeyPress = cbPathKeyPress
+      ExplicitWidth = 528
     end
   end
   object PanelBody: TPanel
     Left = 0
-    Top = 119
+    Top = 120
     Width = 1280
-    Height = 658
+    Height = 657
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 3
+    ExplicitTop = 119
+    ExplicitHeight = 658
     object Splitter2: TSplitter
       Left = 1030
       Top = 0
       Width = 5
-      Height = 658
+      Height = 657
       Align = alRight
       Beveled = True
       MinSize = 150
@@ -364,10 +370,11 @@ object frmPicView: TfrmPicView
       Left = 1035
       Top = 0
       Width = 245
-      Height = 658
+      Height = 657
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitHeight = 658
       object PanelRightHead: TPanel
         Left = 0
         Top = 0
@@ -415,18 +422,20 @@ object frmPicView: TfrmPicView
       Left = 0
       Top = 0
       Width = 1030
-      Height = 658
+      Height = 657
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitHeight = 658
       object PanelBrowse: TPanel
         Left = 0
         Top = 0
         Width = 1030
-        Height = 658
+        Height = 657
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitHeight = 658
         object PanelBrowseHead: TPanel
           Left = 0
           Top = 0
@@ -507,7 +516,7 @@ object frmPicView: TfrmPicView
           Left = 0
           Top = 30
           Width = 1030
-          Height = 628
+          Height = 627
           Align = alClient
           Color = 2105636
           DefaultNodeHeight = 16
@@ -526,6 +535,7 @@ object frmPicView: TfrmPicView
           OnResize = VTListResize
           Touch.InteractiveGestures = [igPan, igPressAndTap]
           Touch.InteractiveGestureOptions = [igoPanSingleFingerHorizontal, igoPanSingleFingerVertical, igoPanInertia, igoPanGutter, igoParentPassthrough]
+          ExplicitHeight = 628
           Columns = <>
         end
       end
@@ -533,14 +543,15 @@ object frmPicView: TfrmPicView
         Left = 0
         Top = 0
         Width = 1030
-        Height = 658
+        Height = 657
         Align = alClient
         BevelOuter = bvNone
         TabOrder = 1
         Visible = False
+        ExplicitHeight = 658
         object Splitter3: TSplitter
           Left = 0
-          Top = 493
+          Top = 492
           Width = 1030
           Height = 5
           Cursor = crVSplit
@@ -555,7 +566,7 @@ object frmPicView: TfrmPicView
           Left = 0
           Top = 0
           Width = 1030
-          Height = 493
+          Height = 492
           HorzScrollBar.Tracking = True
           VertScrollBar.Tracking = True
           Align = alClient
@@ -572,6 +583,7 @@ object frmPicView: TfrmPicView
           OnMouseUp = ImageMainMouseUp
           OnMouseWheel = FormMouseWheel
           OnResize = ScrollBoxViewerResize
+          ExplicitHeight = 493
           object ImageMain: TImage
             Left = 0
             Top = 0
@@ -588,12 +600,13 @@ object frmPicView: TfrmPicView
         end
         object PanelThumbs: TPanel
           Left = 0
-          Top = 498
+          Top = 497
           Width = 1030
           Height = 130
           Align = alBottom
           BevelOuter = bvNone
           TabOrder = 1
+          ExplicitTop = 498
           object PanelThumbsHead: TPanel
             Left = 0
             Top = 0
@@ -643,7 +656,7 @@ object frmPicView: TfrmPicView
         end
         object PanelHint: TPanel
           Left = 0
-          Top = 628
+          Top = 627
           Width = 1030
           Height = 30
           Align = alBottom
@@ -658,6 +671,7 @@ object frmPicView: TfrmPicView
           ParentFont = False
           TabOrder = 2
           Visible = False
+          ExplicitTop = 628
         end
       end
     end
