@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{36A61F23-8914-465B-9987-A9EFEE15892A}</ProjectGuid>
+        <ProjectGuid>{6760212D-11BA-4510-8DB5-D5309BC96B3F}</ProjectGuid>
         <ProjectVersion>20.5</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <MainSource>PicView.dpr</MainSource>

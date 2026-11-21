@@ -57,6 +57,12 @@
         <Projects Include="dvp\dvp.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="PicView\PicView.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="dvs\dvs.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -227,14 +233,32 @@
     <Target Name="dvp:Make">
         <MSBuild Projects="dvp\dvp.dproj" Targets="Make"/>
     </Target>
+    <Target Name="PicView">
+        <MSBuild Projects="PicView\PicView.dproj"/>
+    </Target>
+    <Target Name="PicView:Clean">
+        <MSBuild Projects="PicView\PicView.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PicView:Make">
+        <MSBuild Projects="PicView\PicView.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="dvs">
+        <MSBuild Projects="dvs\dvs.dproj"/>
+    </Target>
+    <Target Name="dvs:Clean">
+        <MSBuild Projects="dvs\dvs.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="dvs:Make">
+        <MSBuild Projects="dvs\dvs.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="det;ccpu;china;dcv;edge;env;HelloJava;jcv;mft;plist;pm;sImage;sInfo;snap;sp;vds;vdt;dvp"/>
+        <CallTarget Targets="det;ccpu;china;dcv;edge;env;HelloJava;jcv;mft;plist;pm;sImage;sInfo;snap;sp;vds;vdt;dvp;PicView;dvs"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="det:Clean;ccpu:Clean;china:Clean;dcv:Clean;edge:Clean;env:Clean;HelloJava:Clean;jcv:Clean;mft:Clean;plist:Clean;pm:Clean;sImage:Clean;sInfo:Clean;snap:Clean;sp:Clean;vds:Clean;vdt:Clean;dvp:Clean"/>
+        <CallTarget Targets="det:Clean;ccpu:Clean;china:Clean;dcv:Clean;edge:Clean;env:Clean;HelloJava:Clean;jcv:Clean;mft:Clean;plist:Clean;pm:Clean;sImage:Clean;sInfo:Clean;snap:Clean;sp:Clean;vds:Clean;vdt:Clean;dvp:Clean;PicView:Clean;dvs:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="det:Make;ccpu:Make;china:Make;dcv:Make;edge:Make;env:Make;HelloJava:Make;jcv:Make;mft:Make;plist:Make;pm:Make;sImage:Make;sInfo:Make;snap:Make;sp:Make;vds:Make;vdt:Make;dvp:Make"/>
+        <CallTarget Targets="det:Make;ccpu:Make;china:Make;dcv:Make;edge:Make;env:Make;HelloJava:Make;jcv:Make;mft:Make;plist:Make;pm:Make;sImage:Make;sInfo:Make;snap:Make;sp:Make;vds:Make;vdt:Make;dvp:Make;PicView:Make;dvs:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

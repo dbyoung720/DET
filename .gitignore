@@ -50,3 +50,5 @@ __recovery
 /plugins/delphi/vds/Winapi.GDIPOBJ.pas
 /bin/Win32/Release/.work
 /bin/Win64/Release/.work
+/bin/Win64/Release/plugins/vlc/portable
+/bin/Win64/Release/downloads
