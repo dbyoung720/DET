@@ -311,13 +311,49 @@ function MakeThumbPixelsWithTurboJpeg(const AFileName : string; ASize : Integer;
 var
   bmp              : TBitmap;
   AWidth , AHeight : Integer;
+  Data             : TBytes;
+  Dest             : PDWORD;
+  Src              : PByte;
+  X0, Y0, Row      : Integer;
 begin
-  var Data := TFile.ReadAllBytes(AFileName);
-  Result := TjDecodeToBitmapScaled(Data, ASize, ASize, bmp, AWidth, AHeight);
-  if Result then
-  begin
-    SetLength(Buffer, ASize * ASize * 4);
-    Move(TBitmapImageAccess(TBMPAccess(bmp).FImage).FDIB.dsBm.bmBits^, Buffer[0], AWidth * AHeight * 4);
+  Result := False;
+  SetLength(Buffer, 0);
+  if (ASize <= 0) or (AFileName = '') then Exit;
+
+  bmp := nil;
+  try
+    try
+      Data := TFile.ReadAllBytes(AFileName);
+      if (Length(Data) < 2) or (Data[0] <> $FF) or (Data[1] <> $D8) then Exit;
+
+      Result := TjDecodeToBitmapScaled(Data, ASize, ASize, bmp, AWidth, AHeight);
+      if (not Result) or (bmp = nil) or (AWidth <= 0) or (AHeight <= 0) then
+      begin
+        Result := False;
+        Exit;
+      end;
+
+      if AWidth  > ASize then AWidth  := ASize;
+      if AHeight > ASize then AHeight := ASize;
+
+      SetLength(Buffer, ASize * ASize * 4);
+      Dest := @Buffer[0];
+      for Row := 0 to ASize * ASize - 1 do Dest[Row] := $FF2C2C2C;
+
+      X0 := (ASize - AWidth) div 2;
+      Y0 := (ASize - AHeight) div 2;
+      Src := TBitmapImageAccess(TBMPAccess(bmp).FImage).FDIB.dsBm.bmBits;
+      for Row := 0 to AHeight - 1 do
+      begin
+        Move(Src^, Buffer[(Y0 + Row) * ASize * 4 + X0 * 4], AWidth * 4);
+        Inc(Src, AWidth * 4);
+      end;
+      DrawFrame(Buffer, ASize);
+    except
+      Result := False;
+      SetLength(Buffer, 0);
+    end;
+  finally
     bmp.Free;
   end;
 end;
@@ -335,10 +371,7 @@ var
   OwnThumb, Locked: Boolean;
 begin
   { 使用 TurboJpeg 创建缩略图 }
-  if MakeThumbPixelsWithTurboJpeg(AFileName, ASize, Result) then
-  begin
-    Exit;
-  end;
+  // if MakeThumbPixelsWithTurboJpeg(AFileName, ASize, Result) then Exit;
 
   SetLength(Result, 0);
   if (ASize < 16) or (AFileName = '') then Exit;
