@@ -5,7 +5,7 @@ unit uThumbEngine;
 interface
 
 uses Winapi.Windows, Winapi.ActiveX, System.SysUtils, System.Classes, System.SyncObjs, System.IOUtils, System.DateUtils, System.Generics.Collections, System.Math,
-     Vcl.Graphics, uImageKit;
+     Vcl.Graphics, TurboJpeg.Bitmap, uImageKit;
 
 type
   TThumbRequest = record
@@ -302,6 +302,25 @@ begin
   Result := (E = '.qoi');
 end;
 
+type
+  TBMPAccess         = class(TBitmap);
+  TBitmapImageAccess = class(TBitmapImage);
+
+{ 使用 TurboJpeg 创建缩略图 }
+function MakeThumbPixelsWithTurboJpeg(const AFileName : string; ASize : Integer; var Buffer: TBytes): Boolean;
+var
+  bmp              : TBitmap;
+  AWidth , AHeight : Integer;
+begin
+  var Data := TFile.ReadAllBytes(AFileName);
+  Result := TjDecodeToBitmapScaled(Data, ASize, ASize, bmp, AWidth, AHeight);
+  if Result then
+  begin
+    SetLength(Buffer, ASize * ASize * 4);
+    Move(TBitmapImageAccess(TBMPAccess(bmp).FImage).FDIB.dsBm.bmBits^, Buffer[0], AWidth * AHeight * 4);
+    bmp.Free;
+  end;
+end;
 
 { 用 GDI+ 缩略图技术生成 ASize x ASize 的 32bpp BGRA 像素。
   GdipGetImageThumbnail 对带内嵌缩略图的 JPEG 可直接取缩略图, 无需全图解码; 其余格式由 GDI+ 内部快速缩放, 再用双三次插值绘制到灰底画布上
@@ -315,6 +334,12 @@ var
   BD: TBitmapData;
   OwnThumb, Locked: Boolean;
 begin
+  { 使用 TurboJpeg 创建缩略图 }
+  if MakeThumbPixelsWithTurboJpeg(AFileName, ASize, Result) then
+  begin
+    Exit;
+  end;
+
   SetLength(Result, 0);
   if (ASize < 16) or (AFileName = '') then Exit;
 
