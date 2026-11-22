@@ -377,8 +377,6 @@ end;
 
 procedure TfrmMain.tlbrpnl1CustomButtons1Click(Sender: TObject);
 begin
-  if pmModule.Items[0].Count = 0 then Exit;
-  
   if not SameText(pmModule.Items[0].Caption, 'œ‘ æ') then
   begin
     var mmItem1     := TMenuItem.Create(Self);

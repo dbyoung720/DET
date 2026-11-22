@@ -58,6 +58,7 @@ function NTSetPrivilege(sPrivilege: AnsiString; bEnabled: Boolean): Boolean;
 { 删除注册表编辑器记忆的位置 }
 procedure ClearRegeditView;
 
+{ 加载模块列表到弹出式菜单中 }
 procedure LoadModuleToPopMenu(tv: TTreeView; pm: TPopupMenu; MenuItemClick: TNotifyEvent);
 
 { 加密字符串 }
@@ -572,6 +573,7 @@ begin
   end;
 end;
 
+{ 创建菜单项 }
 function CreateMenuItemFromNode(Node: TTreeNode; ParentMenuItem: TMenuItem; MenuItemClick: TNotifyEvent): TMenuItem;
 var
   ChildNode: TTreeNode;
@@ -594,6 +596,7 @@ begin
   if ParentMenuItem <> nil then ParentMenuItem.Add(Result);
 end;
 
+{ 加载模块列表到弹出式菜单中 }
 procedure LoadModuleToPopMenu(tv: TTreeView; pm: TPopupMenu; MenuItemClick: TNotifyEvent);
 var
   RootNode: TTreeNode;
@@ -611,7 +614,7 @@ end;
 { 标题栏文本 }
 function GetTitleText: string;
 begin
-  Result := 'eTools v4.0';
+  Result := 'DET v4.0';
   var strFileName := ExtractFilePath(ParamStr(0)) + 'config.ini';
   with TIniFile.Create(strFileName) do
   begin

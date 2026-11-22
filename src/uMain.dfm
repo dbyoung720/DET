@@ -935,7 +935,6 @@ object frmMain: TfrmMain
                 Font.Name = #24494#36719#38597#40657
                 Font.Style = []
                 GridLines = True
-                Items.ItemData = {050000000000000000}
                 ReadOnly = True
                 RowSelect = True
                 ParentFont = False
