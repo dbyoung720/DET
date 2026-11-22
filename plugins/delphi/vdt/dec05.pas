@@ -54,7 +54,7 @@ type
 
 implementation
 
-uses ulibYUV;
+uses libyuv;
 
 const
   { 与 TAVHWDeviceType 类型对应；字符串区分大小写 }
@@ -243,11 +243,11 @@ begin
   { 获取到位图。sws_scale 函数效率低下, libyuv 效率较高 }
   if frame^.format = Ord(AV_PIX_FMT_NV12) then
   begin
-    libYUV_NV12ToARGB(frame^.data[0], frame^.linesize[0], frame^.data[1], frame^.linesize[1], FpBits, FilineSize, frame^.Width, -frame^.Height);
+    NV12ToARGB(frame^.data[0], frame^.linesize[0], frame^.data[1], frame^.linesize[1], FpBits, FilineSize, frame^.Width, -frame^.Height);
   end
   else if frame^.format = Ord(AV_PIX_FMT_P010LE) then
   begin
-    libYUV_P010LEToARGB(frame, FpBits, FilineSize, frame^.Width, -frame^.Height);
+    P010ToARGBMatrix(PWord(frame^.data[0]), frame^.linesize[0] div 2, PWORD(frame^.data[1]), frame^.linesize[1] div 2, FpBits, FilineSize, YuvI601Constants, frame^.Width, -frame^.Height);
   end
   else
   begin

@@ -48,7 +48,7 @@ end;
 { 用户自己的处理过程；可以测试代码效率 }
 procedure TfrmVideoDecode.ImageProcessCallback(bmp: TBitmap);
 begin
-  GrayBmp32(bmp);
+  // GrayBmp32(bmp);
 end;
 
 procedure TfrmVideoDecode.btnStartClick(Sender: TObject);

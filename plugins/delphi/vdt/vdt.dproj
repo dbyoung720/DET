@@ -144,6 +144,7 @@
         <DCCReference Include="dec04.pas"/>
         <DCCReference Include="dec05.pas"/>
         <DCCReference Include="dec06.pas"/>
+        <DCCReference Include="libyuv\libyuv.pas"/>
         <DCCReference Include="Unit1.pas">
             <Form>frmVideoDecode</Form>
         </DCCReference>

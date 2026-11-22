@@ -14,6 +14,7 @@ uses
   dec04 in 'dec04.pas',
   dec05 in 'dec05.pas',
   dec06 in 'dec06.pas',
+  libyuv in 'libyuv\libyuv.pas',
   Unit1 in 'Unit1.pas' {frmVideoDecode};
 
 {$R *.res}
