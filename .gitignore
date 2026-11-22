@@ -53,3 +53,4 @@ __recovery
 /bin/Win64/Release/plugins/vlc/portable
 /bin/Win64/Release/downloads
 /tools/libYUV
+/bin/Win64/Release/det.ini
