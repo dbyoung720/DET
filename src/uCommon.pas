@@ -30,9 +30,6 @@ procedure MyMSG(hWnd : THandle; const strTip: string);
 { 延时函数 }
 procedure DelayTime(const intTime: Cardinal);
 
-{ 7z.dll 保存到磁盘 }
-function Check7zDll: string;
-
 { 标题栏文本 }
 function GetTitleText: string;
 
@@ -355,34 +352,6 @@ begin
   finally
     Reg.Free;
   end;
-end;
-
-{ 7z.dll 保存到磁盘 }
-function Check7zDll: string;
-  procedure Unzip(const strFile: string);
-  var
-    mem7zRS: TResourceStream;
-  begin
-    mem7zRS := TResourceStream.Create(HInstance, '7ZDLL', RT_RCDATA);
-    try
-      mem7zRS.Position := 0;
-      mem7zRS.SaveToFile(strFile);
-    finally
-      mem7zRS.Free;
-    end;
-  end;
-var
-  strPath: string;
-begin
-{$IFDEF CPUX64}
-  strPath := TPath.GetHomePath + '\7zip\X64';
-{$ELSE}
-  strPath := TPath.GetHomePath + '\7zip\X86';
-{$IFEND }
-  var strFile := strPath + '\7z.dll';
-  if not DirectoryExists(strPath) then ForceDirectories(strPath);
-  if not FileExists(strFile) then Unzip(strFile); 
-  Result := strFile;
 end;
 
 { 在主窗体中按名称查找控件（含嵌套控件） }
@@ -1044,7 +1013,6 @@ initialization
   SetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_DEFAULT_DIRS OR LOAD_LIBRARY_SEARCH_USER_DIRS);
   AddDllDirectory(PChar(ExtractFilePath(ParamStr(0)) + c_strPlugins + 'opencv'));
   NTSetPrivilege(c_strSE_DEBUG_NAME, True);
-  Check7zDll;
   InitJava;
 
 finalization

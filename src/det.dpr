@@ -16,16 +16,13 @@ uses
 {$R *.res}
 
 {$IFDEF CPUX86}
-  {$R res\7zX86.res}
   {$R res\vcx86.res}
 {$ELSE}
-  {$R res\7zX64.res}
   {$R res\vcx64.res}
 {$ENDIF}
 
-function GetMainFormApplication: TApplication; stdcall; begin Result := Application;       end; exports GetMainFormApplication;
-function Get7zipPath : PChar;                  stdcall; begin Result := PChar(Check7zDll); end; exports Get7zipPath;
-function CreateLogger: TLogger;                stdcall; begin Result := FLogger;           end; exports CreateLogger;
+function GetMainFormApplication: TApplication; stdcall; begin Result := Application; end; exports GetMainFormApplication;
+function CreateLogger: TLogger;                stdcall; begin Result := FLogger;     end; exports CreateLogger;
 
 procedure CreateMainForm(const strLoginName : string);
 begin
