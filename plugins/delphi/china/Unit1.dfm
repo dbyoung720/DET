@@ -55,7 +55,6 @@ object frmChina: TfrmChina
       ParentFont = False
       TabOrder = 0
       OnClick = cbbProvinceChange
-      ExplicitHeight = 597
     end
   end
   object grpCity: TGroupBox
@@ -94,8 +93,6 @@ object frmChina: TfrmChina
       ParentFont = False
       TabOrder = 0
       OnClick = cbbCityChange
-      ExplicitWidth = 353
-      ExplicitHeight = 402
     end
   end
   object grpCity1: TGroupBox
@@ -134,8 +131,6 @@ object frmChina: TfrmChina
       ParentFont = False
       TabOrder = 0
       OnClick = cbbAreaChange
-      ExplicitWidth = 352
-      ExplicitHeight = 133
     end
   end
   object grpCity2: TGroupBox
@@ -174,7 +169,6 @@ object frmChina: TfrmChina
       ParentFont = False
       TabOrder = 0
       OnClick = cbbStreetChange
-      ExplicitHeight = 597
     end
   end
   object grpCity11: TGroupBox
@@ -213,8 +207,6 @@ object frmChina: TfrmChina
       ItemHeight = 27
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 353
-      ExplicitHeight = 597
     end
   end
 end

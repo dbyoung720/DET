@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, Winapi.ActiveX, System.SysUtils, System.Variants, System.Classes, System.Win.ComObj, System.IOUtils, System.Contnrs, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB,
-  mormot.core.base, mormot.orm.core, mormot.core.json, mormot.rest.sqlite3, mormot.DB.raw.sqlite3, mormot.DB.raw.sqlite3.static, sevenzip;
+  mormot.core.base, mormot.orm.core, mormot.core.json, mormot.rest.sqlite3, mormot.DB.raw.sqlite3, mormot.DB.raw.sqlite3.static, SevenZip.Static;
 
 type
   TfrmChina = class(TForm)
@@ -27,7 +27,7 @@ type
   private
     FsqliteDB: TMemoryStream;
     FDB      : TSqlDatabase;
-    procedure ConnectedDataBase(const str7zDllFile: string);
+    procedure ConnectedDataBase();
     procedure AddItemData(Records: TObjectList; cbb: TListBox; const iItemIndex: Integer = 0);
   end;
 
@@ -81,14 +81,14 @@ type
     property Name: RawUTF8 read FName write FName;
   end;
 
-function Get7zipPath: PChar; stdcall; external 'det.exe';
+//function Get7zipPath: PChar; stdcall; external 'det.exe';
 
 procedure TfrmChina.FormCreate(Sender: TObject);
-var
-  str7zDllFile: string;
+//var
+//  str7zDllFile: string;
 begin
-  str7zDllFile := string(Get7zipPath);
-  ConnectedDataBase(str7zDllFile);
+//  str7zDllFile := string(Get7zipPath);
+  ConnectedDataBase();
 end;
 
 procedure TfrmChina.FormDestroy(Sender: TObject);
@@ -110,21 +110,33 @@ begin
   cbb.ItemIndex := iItemIndex;
 end;
 
-procedure TfrmChina.ConnectedDataBase(const str7zDllFile: string);
+procedure TfrmChina.ConnectedDataBase();
 const
   SQLITE_DESERIALIZE_FREEONCLOSE = 1;
   SQLITE_DESERIALIZE_READONLY    = 4;
 var
-  archive: I7zInArchive;
+  Bytes, Data: TBytes;
   Model  : TSQLModel;
   rsDB   : TRestServerDB;
   Records: TObjectList;
 begin
   { 资源中的 sqlite 数据库解压到内存流 }
-  archive := CreateInArchive(CLSID_CFormat7z, str7zDllFile);
-  archive.OpenStream(T7zStream.Create(TResourceStream.Create(HInstance, 'CHINA', RT_RCDATA), soOwned));
-  FsqliteDB := TMemoryStream.Create;
-  archive.ExtractItem(0, FsqliteDB, false);
+  var mem   := TMemoryStream.Create;
+  var hRes  := FindResource(HInstance, 'CHINA', RT_RCDATA);
+  var Size  := SizeofResource(HInstance, hRes);
+  var hGlob := LoadResource(HInstance, hRes);
+  var Ptr := LockResource(hGlob);
+  mem.WriteBuffer(Ptr^, Size);
+  mem.Position := 0;
+  SetLength(Bytes, Mem.Size);
+  mem.ReadBuffer(Bytes[0], mem.Size);
+  mem.free;
+
+  { 7zip 解压 }
+  var archive := T7zArchive.Create(Bytes);
+  data := archive.Extract(0);
+  FsqliteDB :=TMemoryStream.Create;
+  FsqliteDB.WriteBuffer(data, Length(Data));
   FsqliteDB.Position := 0;
 
   { 连接内存数据库 }

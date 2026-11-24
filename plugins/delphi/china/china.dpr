@@ -8,6 +8,7 @@ uses
   Vcl.Forms,
   System.SysUtils,
   System.Classes,
+  SevenZip.Static in '.\7zip\SevenZip.Static.pas',
   Unit1 in 'Unit1.pas' {frmChina};
 
 {$R *.res}

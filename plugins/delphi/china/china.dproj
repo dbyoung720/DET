@@ -133,6 +133,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="7zip\SevenZip.Static.pas"/>
         <DCCReference Include="Unit1.pas">
             <Form>frmChina</Form>
         </DCCReference>
