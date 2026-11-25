@@ -6,6 +6,7 @@ library env;
 
 uses
   Vcl.Forms,
+  ChromeScrollBar in '..\..\..\vcl\Scrollbar\ChromeScrollBar.pas',
   Unit1 in 'Unit1.pas' {frmEnv};
 
 {$R *.res}

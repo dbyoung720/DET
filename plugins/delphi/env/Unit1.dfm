@@ -11,6 +11,8 @@ object frmEnv: TfrmEnv
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   TextHeight = 15
   object Memo1: TMemo
     Left = 0
@@ -37,7 +39,7 @@ object frmEnv: TfrmEnv
     WantTabs = True
   end
   object tmrStart: TTimer
-    Interval = 100
+    Interval = 200
     OnTimer = tmrStartTimer
     Left = 56
     Top = 120
