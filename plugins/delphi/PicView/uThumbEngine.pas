@@ -326,7 +326,7 @@ begin
       Data := TFile.ReadAllBytes(AFileName);
       if (Length(Data) < 2) or (Data[0] <> $FF) or (Data[1] <> $D8) then Exit;
 
-      Result := TjDecodeToBitmapScaled(Data, ASize, ASize, bmp, AWidth, AHeight);
+      Result := TjDecodeToBitmapScaled(Data, ASize - 10, ASize - 10, bmp, AWidth, AHeight);
       if (not Result) or (bmp = nil) or (AWidth <= 0) or (AHeight <= 0) then
       begin
         Result := False;
@@ -371,7 +371,7 @@ var
   OwnThumb, Locked: Boolean;
 begin
   { 使用 TurboJpeg 创建缩略图 }
-  // if MakeThumbPixelsWithTurboJpeg(AFileName, ASize, Result) then Exit;
+  if MakeThumbPixelsWithTurboJpeg(AFileName, ASize, Result) then Exit;
 
   SetLength(Result, 0);
   if (ASize < 16) or (AFileName = '') then Exit;
