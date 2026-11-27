@@ -6,7 +6,7 @@ interface
 uses
   Winapi.Windows, Winapi.ShlObj, Winapi.ShellAPI, Winapi.ActiveX, Winapi.TlHelp32, Winapi.PsAPI, System.SysUtils, System.Classes, System.IniFiles, System.Math, System.StrUtils,
   Vcl.Clipbrd, Vcl.FileCtrl, Vcl.Controls, Vcl.Forms, Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls, Vcl.Dialogs, Vcl.Graphics,
-  uProcessAPI, uScrollBar, Vcl.ExtCtrls;
+  uProcessAPI, ChromeScrollBar, Vcl.ExtCtrls;
 
 type
   TfrmProcessManager = class(TForm)
@@ -66,7 +66,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure tmrStartTimer(Sender: TObject);
   private
-    FSBLV1, FSBLV2: TFMScrollBar;
+    FSBLV1, FSBLV2: TChromeScrollBar;
     procedure EnumProcess(lv: TListView);
     procedure EnumProcessModules(const intPID: Cardinal; lv: TListView);
     function GetFileVersion(const strExeName: string): String;
@@ -282,10 +282,14 @@ end;
 procedure TfrmProcessManager.tmrStartTimer(Sender: TObject);
 begin
   tmrStart.Enabled := False;
-  FSBLV1 := TFMScrollBar.Create(nil);
-  FSBLV1.InitScrollbar(lvProcess);
-  FSBLV2 := TFMScrollBar.Create(nil);
-  FSBLV2.InitScrollbar(lvModule);
+
+  FSBLV1          := TChromeScrollBar.Create(nil);
+  FSBLV1.Target   := lvProcess;
+  FSBLV1.AutoHide := False;
+  FSBLV2          := TChromeScrollBar.Create(nil);
+  FSBLV2.Target   := lvModule;
+  FSBLV2.AutoHide := False;
+
   EnumProcess(lvProcess);
 end;
 

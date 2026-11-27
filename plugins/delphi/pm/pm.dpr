@@ -8,6 +8,7 @@ uses
   Vcl.Forms,
   System.SysUtils,
   System.Classes,
+  ChromeScrollBar in '..\..\..\vcl\Scrollbar\ChromeScrollBar.pas',
   uProcessManager in 'uProcessManager.pas' {frmProcessManager};
 
 {$R *.res}
