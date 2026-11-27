@@ -32,7 +32,7 @@ begin
     try
       frmDelphiDll.Position       := poDesigned;
       frmDelphiDll.DoubleBuffered := True;
-      frmDelphiDll.Color          := Application.MainForm.Color;
+      frmDelphiDll.Color          := c_clrBackgroudColor;
       frmDelphiDll.Anchors        := [akLeft, akTop, akRight, akBottom];
       frmDelphiDll.Tag            := NativeInt(hDllModule);
       frmDelphiDll.BorderStyle    := bsNone;

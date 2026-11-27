@@ -9,6 +9,23 @@ uses
   Data.DB, DBAccess, UniDacVcl,Uni, PostgreSQLUniProvider, InterBaseUniProvider, DB2UniProvider, ODBCUniProvider, OracleUniProvider, MySQLUniProvider, UniProvider, SQLServerUniProvider,
   RzTabs, RzEdit, RzBtnEdt, uCommon, uLogger, uTabView;
 
+
+type
+  TPanel = class(Vcl.ExtCtrls.TPanel)
+  private
+    FCornerRadius: Integer;
+    procedure UpdateRoundedRegion;
+    procedure SetCornerRadius(const Value: Integer);
+  protected
+    procedure CreateWnd; override;
+  public
+    constructor Create(AOwner: TComponent); override;
+    procedure SetBounds(ALeft, ATop, AWidth, AHeight: Integer); override;
+  published
+    property CornerRadius: Integer read FCornerRadius write SetCornerRadius default 20;
+  end;
+
+
 type
   TfrmMain = class(TForm)
     tlbrpnl1: TTitleBarPanel;
@@ -192,7 +209,6 @@ begin
   Application.Title     := strTitle;
   lblTitle.Caption      := strTitle;
   trycnModule.Hint      := strTitle;
-  Color                 := CH_TAB_ACTIVE;
   CustomTitleBar.Height := cTitleBarHeight;
   lblTime.Caption       := GetCurrentTime;
   lblLoginUser.Caption  := IfThen(Hint.IsEmpty, '', '当前登录用户：' + Hint);
@@ -659,5 +675,49 @@ begin
     lsQT    : CreateVCDLGDllForm(strDllFileName);
   end;
 end;
+
+
+constructor TPanel.Create(AOwner: TComponent);
+begin
+  inherited;
+  BevelInner := bvNone;
+  BevelOuter := bvNone;
+  FCornerRadius := 30;
+end;
+
+procedure TPanel.CreateWnd;
+begin
+  inherited;
+  if SameText(Name, 'pnlPages') then UpdateRoundedRegion;
+end;
+
+procedure TPanel.SetBounds(ALeft, ATop, AWidth, AHeight: Integer);
+begin
+  inherited;
+  if HandleAllocated and SameText(Name, 'pnlPages') then UpdateRoundedRegion;
+end;
+
+procedure TPanel.SetCornerRadius(const Value: Integer);
+begin
+  if FCornerRadius <> Value then
+  begin
+    FCornerRadius := Value;
+    if SameText(Name, 'pnlPages') then UpdateRoundedRegion;
+  end;
+end;
+
+procedure TPanel.UpdateRoundedRegion;
+begin
+  if not HandleAllocated then Exit;
+  if not SameText(Name, 'pnlPages') then Exit;
+
+  var Rgn := CreateRoundRectRgn(0, 0, ClientWidth, ClientHeight, FCornerRadius, FCornerRadius);
+  try
+    SetWindowRgn(Handle, Rgn, True);
+  finally
+    DeleteObject(Rgn);
+  end;
+end;
+
 
 end.
